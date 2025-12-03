@@ -2,10 +2,12 @@
 # Pico-Daisy UI
 
 A drop-in CSS theme that gives [PicoCSS v2](https://picocss.com/) the look and feel of [DaisyUI](https://daisyui.com/), with custom component styles and a modern design system.
+It's [live](https://josuebrunel.github.io/picodaisy/)
 
 ![Pico-Daisy UI Demo](https://img.shields.io/badge/style-DaisyUI_violet-570df8?style=for-the-badge&logo=css3&logoColor=white)
 ![PicoCSS v2](https://img.shields.io/badge/built_on-PicoCSS_v2-333333?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
+![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
 
 ## ✨ Features
 
