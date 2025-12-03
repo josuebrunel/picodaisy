@@ -27,7 +27,7 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
 
 <!-- Pico-Daisy UI (Add AFTER PicoCSS) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yourusername/pico-daisy/pico-daisy.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.css">
 ```
 
 ### Option 2: Local file
