@@ -13,6 +13,7 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 
 - **DaisyUI-inspired design** with the violet color scheme
 - **Dark mode support** using CSS custom properties
+- **Extensive component library**: Steps, Toast, Tooltips, Avatars, and more
 - **Custom components**: Stats, Alerts, Chat bubbles, Cards, Badges, Charts
 - **Modern typography** using Tailwind's default font stack
 - **Responsive design** that works on all screen sizes
@@ -70,6 +71,7 @@ The theme uses CSS custom properties for easy customization:
 
 ### Hero Section
 
+Standard Hero:
 ```html
 <section class="daisy-hero">
     <div class="daisy-hero-content">
@@ -78,6 +80,83 @@ The theme uses CSS custom properties for easy customization:
         <button>Get Started</button>
     </div>
 </section>
+```
+
+Hero with Overlay:
+```html
+<div class="daisy-hero daisy-hero-overlay" style="background-image: url('image.jpg');">
+  <div class="daisy-hero-content text-center text-neutral-content">
+    <div>
+      <h1>Hero with Overlay</h1>
+      <p>Use an overlay to make text readable on busy background images.</p>
+      <button class="primary">Get Started</button>
+    </div>
+  </div>
+</div>
+```
+
+### Steps
+
+```html
+<ul class="daisy-steps">
+  <li class="daisy-step daisy-step-primary">Register</li>
+  <li class="daisy-step daisy-step-primary">Choose plan</li>
+  <li class="daisy-step">Purchase</li>
+  <li class="daisy-step">Receive Product</li>
+</ul>
+```
+
+### Toast
+
+```html
+<div class="daisy-toast daisy-toast-end">
+  <div class="daisy-alert alert-success">
+    <span>Message sent successfully.</span>
+  </div>
+</div>
+```
+
+### Tooltip
+
+```html
+<div class="daisy-tooltip" data-tip="hello">
+  <button>Hover me</button>
+</div>
+```
+
+### Avatar
+
+```html
+<div class="daisy-avatar">
+  <div class="w-24 rounded-full">
+    <img src="https://i.pravatar.cc/150?img=32" />
+  </div>
+</div>
+```
+
+### Join (Input Group)
+
+```html
+<div class="daisy-join">
+  <input class="daisy-join-item" placeholder="Email"/>
+  <button class="daisy-join-item primary">Subscribe</button>
+</div>
+```
+
+### Loading
+
+```html
+<span class="daisy-loading daisy-loading-spinner daisy-loading-lg"></span>
+```
+
+### Divider
+
+```html
+<div class="flex w-full flex-col border-opacity-50">
+  <div class="card bg-base-300 rounded-box grid h-20 place-items-center">content</div>
+  <div class="daisy-divider">OR</div>
+  <div class="card bg-base-300 rounded-box grid h-20 place-items-center">content</div>
+</div>
 ```
 
 ### Stats 
@@ -215,6 +294,11 @@ The theme uses CSS custom properties for easy customization:
     <label for="password">
         Password
         <input type="password" id="password">
+    </label>
+
+    <label>
+        <input name="terms" type="checkbox" role="switch" checked />
+        I agree to the terms
     </label>
     
     <button type="submit" class="primary">Submit</button>
