@@ -280,6 +280,33 @@
     <span class="tag">&lt;/div&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span></code></pre>
+
+            <div class="component-demo" style="margin-top: 2rem;">
+                <!-- Hero with Overlay -->
+                <div class="daisy-hero" style="background-image: url('https://picsum.photos/id/2/1000/400'); background-size: cover; border: none; color: white;">
+                    <div class="daisy-hero-overlay"></div>
+                    <div class="daisy-hero-content" style="text-align: center; color: white;">
+                        <div>
+                            <h2 style="color: white;">Hero with Overlay</h2>
+                            <p style="color: rgba(255,255,255,0.9);">
+                                Use an overlay to make text readable on busy background images.
+                            </p>
+                            <button class="primary">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="comment">&lt;!-- Hero with Overlay --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero"</span> <span class="attr">style</span>=<span class="val">"background-image: url(bg.jpg);"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero-overlay"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero-content"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;h1&gt;</span>Title<span class="tag">&lt;/h1&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Description...<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
         <!-- Stats Demo -->
@@ -570,6 +597,12 @@
     Email
     <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">placeholder</span>=<span class="val">"email@example.com"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;fieldset&gt;</span>
+    <span class="tag">&lt;label&gt;</span>
+      <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"checkbox"</span> <span class="attr">role</span>=<span class="val">"switch"</span><span class="tag">&gt;</span>
+      Subscribe to newsletter
+    <span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;/fieldset&gt;</span>
   <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Submit<span class="tag">&lt;/button&gt;</span>
 <span class="tag">&lt;/form&gt;</span></code></pre>
         </section>
@@ -751,6 +784,28 @@
 <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-join"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"join-item"</span><span class="tag">&gt;</span>One<span class="tag">&lt;/button&gt;</span>
   <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"join-item"</span><span class="tag">&gt;</span>Two<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Divider Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Divider Component</h2>
+                <p class="demo-subtitle">Visually separate content.</p>
+            </div>
+
+            <div class="component-demo">
+                <div style="display: flex; flex-direction: column; width: 100%;">
+                    <div style="background: var(--pico-card-background-color); padding: 1rem; border-radius: 0.5rem; text-align: center;">Content A</div>
+                    <div class="daisy-divider">OR</div>
+                    <div style="background: var(--pico-card-background-color); padding: 1rem; border-radius: 0.5rem; text-align: center;">Content B</div>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"flex flex-col w-full"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span><span class="tag">&gt;</span>Content A<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-divider"</span><span class="tag">&gt;</span>OR<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span><span class="tag">&gt;</span>Content B<span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
