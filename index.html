@@ -601,6 +601,135 @@
 <span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
+        <!-- Steps Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Steps Component</h2>
+                <p class="demo-subtitle">Progress indicators for multi-step workflows.</p>
+            </div>
+
+            <div class="component-demo">
+                <ul class="daisy-steps">
+                    <li class="daisy-step daisy-step-primary">Register</li>
+                    <li class="daisy-step daisy-step-primary">Choose Plan</li>
+                    <li class="daisy-step">Purchase</li>
+                    <li class="daisy-step">Receive Product</li>
+                </ul>
+            </div>
+
+            <pre><code><span class="tag">&lt;ul</span> <span class="attr">class</span>=<span class="val">"daisy-steps"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li</span> <span class="attr">class</span>=<span class="val">"daisy-step daisy-step-primary"</span><span class="tag">&gt;</span>Register<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li</span> <span class="attr">class</span>=<span class="val">"daisy-step"</span><span class="tag">&gt;</span>Choose Plan<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></code></pre>
+        </section>
+
+        <!-- Avatar Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Avatar Component</h2>
+                <p class="demo-subtitle">Profile pictures and groups.</p>
+            </div>
+
+            <div class="component-demo">
+                <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                    <!-- Single Avatar -->
+                    <div class="daisy-avatar">
+                        <div style="width: 4rem;">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=570df8&color=fff" alt="Avatar">
+                        </div>
+                    </div>
+
+                    <!-- Avatar Group -->
+                    <div class="daisy-avatar-group">
+                        <div class="daisy-avatar">
+                            <div style="width: 3rem;">
+                                <img src="https://ui-avatars.com/api/?name=Alice&background=f000b8&color=fff" alt="Alice">
+                            </div>
+                        </div>
+                        <div class="daisy-avatar">
+                            <div style="width: 3rem;">
+                                <img src="https://ui-avatars.com/api/?name=Bob&background=37cdbe&color=fff" alt="Bob">
+                            </div>
+                        </div>
+                        <div class="daisy-avatar">
+                            <div style="width: 3rem;">
+                                <img src="https://ui-avatars.com/api/?name=Charlie&background=1f2937&color=fff" alt="Charlie">
+                            </div>
+                        </div>
+                        <div class="daisy-avatar placeholder">
+                            <div style="width: 3rem; height: 3rem; background-color: var(--pico-muted-border-color); display: grid; place-items: center; font-weight: bold; color: var(--pico-muted-color);">
+                                +99
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Join Component</h2>
+                <p class="demo-subtitle">Group items together seamlessly.</p>
+            </div>
+
+            <div class="component-demo">
+                <div class="daisy-join">
+                    <input class="join-item" placeholder="Search..." style="max-width: 200px;" />
+                    <button class="join-item secondary">Subscribe</button>
+                </div>
+
+                <div class="daisy-divider">OR</div>
+
+                <div class="daisy-join">
+                    <button class="join-item">Button 1</button>
+                    <button class="join-item">Button 2</button>
+                    <button class="join-item">Button 3</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tooltip & Loading Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Tooltips & Loading</h2>
+                <p class="demo-subtitle">Feedback and state indicators.</p>
+            </div>
+
+            <div class="component-demo" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                <div data-tip="Hello!" class="daisy-tooltip-top">
+                    <button class="outline">Hover me</button>
+                </div>
+
+                <div data-tip="Bottom tooltip" class="daisy-tooltip-bottom">
+                    <button class="outline secondary">Hover me too</button>
+                </div>
+
+                <span class="daisy-loading loading-spinner"></span>
+                <span class="daisy-loading loading-dots"></span>
+            </div>
+        </section>
+
+        <!-- Toast Demo -->
+         <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Toast Component</h2>
+                <p class="demo-subtitle">Notifications that stack.</p>
+            </div>
+
+            <div class="component-demo" style="position: relative; height: 200px; overflow: hidden; border: 1px dashed var(--pico-muted-border-color); background-color: var(--pico-background-color);">
+                <div class="daisy-toast daisy-toast-end daisy-toast-bottom" style="position: absolute;">
+                    <div class="daisy-alert alert-info">
+                        <span>New message arrived.</span>
+                    </div>
+                    <div class="daisy-alert alert-success">
+                        <span>Message sent successfully.</span>
+                    </div>
+                </div>
+            </div>
+            <p><small>Toasts are fixed positioned by default. The above example is contained for demo purposes.</small></p>
+        </section>
+
         <!-- Color Palette -->
         <section class="demo-section">
             <div class="demo-header">
