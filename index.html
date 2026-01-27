@@ -323,6 +323,21 @@
                     </div>
                 </div>
             </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-alert alert-info"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;span&gt;</span>ℹ<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;div&gt;</span>
+    <span class="tag">&lt;strong&gt;</span>Information<span class="tag">&lt;/strong&gt;</span><span class="tag">&lt;br&gt;</span>
+    This is an informational alert.
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Alert with close button --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-alert alert-success"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;span&gt;</span>✓<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;div&gt;</span><span class="tag">&lt;strong&gt;</span>Success!<span class="tag">&lt;/strong&gt;</span> Saved successfully.<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"alert-close"</span><span class="tag">&gt;</span>×<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
         <!-- Chat Bubbles -->
@@ -351,6 +366,15 @@
                     </div>
                 </div>
             </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-chat"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"chat-message chat-start"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"chat-bubble"</span><span class="tag">&gt;</span>Hey there!<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"chat-message chat-end"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"chat-bubble"</span><span class="tag">&gt;</span>Hello!<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
         <!-- Cards -->
@@ -393,6 +417,17 @@
                     </footer>
                 </article>
             </div>
+
+            <pre><code><span class="tag">&lt;article</span> <span class="attr">class</span>=<span class="val">"daisy-card"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;header&gt;</span>
+    <span class="tag">&lt;h3&gt;</span>Card Title<span class="tag">&lt;/h3&gt;</span>
+    <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge badge-primary"</span><span class="tag">&gt;</span>Badge<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;/header&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Card content goes here...<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;footer&gt;</span>
+    <span class="tag">&lt;button&gt;</span>Action<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;/footer&gt;</span>
+<span class="tag">&lt;/article&gt;</span></code></pre>
         </section>
 
         <!-- Badges -->
@@ -420,6 +455,14 @@
                     <span class="badge badge-accent badge-outline">Accent</span>
                 </div>
             </div>
+
+            <pre><code><span class="comment">&lt;!-- Solid Badges --&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge"</span><span class="tag">&gt;</span>Default<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge badge-primary"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/span&gt;</span>
+
+<span class="comment">&lt;!-- Outline Badges --&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge badge-outline"</span><span class="tag">&gt;</span>Default<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge badge-primary badge-outline"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/span&gt;</span></code></pre>
         </section>
 
         <!-- Forms -->
@@ -471,6 +514,24 @@
                     </div>
                 </form>
             </div>
+
+            <pre><code><span class="tag">&lt;form&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"grid"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;label&gt;</span>
+      First Name
+      <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">placeholder</span>=<span class="val">"John"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;label&gt;</span>
+      Last Name
+      <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">placeholder</span>=<span class="val">"Doe"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;label&gt;</span>
+    Email
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">placeholder</span>=<span class="val">"email@example.com"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Submit<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></code></pre>
         </section>
 
         <!-- Chart Wrappers -->
@@ -521,6 +582,23 @@
                     </div>
                 </div>
             </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-chart-wrapper"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-chart-header"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;h3</span> <span class="attr">class</span>=<span class="val">"daisy-chart-title"</span><span class="tag">&gt;</span>Analytics<span class="tag">&lt;/h3&gt;</span>
+      <span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="val">"daisy-chart-subtitle"</span><span class="tag">&gt;</span>Monthly traffic<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-chart-toolbar"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"chart-toolbar-btn active"</span><span class="tag">&gt;</span>1M<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+
+  <span class="comment">&lt;!-- Chart Container --&gt;</span>
+  <span class="tag">&lt;div&gt;</span>
+    <span class="tag">&lt;canvas</span> <span class="attr">id</span>=<span class="val">"myChart"</span><span class="tag">&gt;</span><span class="tag">&lt;/canvas&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
         <!-- Color Palette -->
