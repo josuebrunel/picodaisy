@@ -41,7 +41,7 @@
     --pico-box-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --pico-transition: 0.2s ease-in-out;
 
-    /* Light Mode Colors */
+    /* Light Mode Colors (Default) */
     --pico-background-color: #ffffff;
     --pico-card-background-color: #ffffff;
     --pico-color: #1f2937; /* Gray-800 */
@@ -49,8 +49,22 @@
     --pico-muted-border-color: #e5e7eb; /* Gray-200 */
 }
 
+/* Dark Mode Overrides - Explicit */
+[data-theme="dark"] {
+    --pico-background-color: #1d232a; /* Daisy Dark Base */
+    --pico-card-background-color: #191e24;
+    --pico-color: #a6adbb;
+    --pico-muted-color: #737983;
+    --pico-muted-border-color: #2a323c;
+    --pico-form-element-background-color: #1d232a;
+    --pico-form-element-border-color: #363c45;
+    --pico-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --pico-box-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Mode Overrides - System Preference (unless forced light) */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --pico-background-color: #1d232a; /* Daisy Dark Base */
         --pico-card-background-color: #191e24;
         --pico-color: #a6adbb;
@@ -224,7 +238,36 @@ nav.daisy-nav {
     line-height: 1;
 }
 
-/* Alert Colors */
+/* Alert Close Button */
+.alert-close {
+    margin-left: auto;
+    margin-top: -0.25rem;
+    margin-right: -0.25rem;
+    background: transparent;
+    border: none;
+    color: currentColor;
+    opacity: 0.5;
+    padding: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 1.2rem;
+    border-radius: var(--pico-border-radius);
+    box-shadow: none;
+    transition: opacity var(--pico-transition), background-color var(--pico-transition);
+}
+
+.alert-close:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: none;
+}
+
+/* Alert Colors - Light/Default */
 .alert-info {
     background-color: #e0f2fe;
     color: #0c4a6e;
@@ -249,29 +292,63 @@ nav.daisy-nav {
     border-color: #fecaca;
 }
 
+/* Alert Colors - Dark Mode Explicit */
+[data-theme="dark"] .alert-info {
+    background-color: rgba(12, 74, 110, 0.4);
+    color: #e0f2fe;
+    border-color: #075985;
+}
+
+[data-theme="dark"] .alert-success {
+    background-color: rgba(20, 83, 45, 0.4);
+    color: #dcfce7;
+    border-color: #166534;
+}
+
+[data-theme="dark"] .alert-warning {
+    background-color: rgba(113, 63, 18, 0.4);
+    color: #fef9c3;
+    border-color: #854d0e;
+}
+
+[data-theme="dark"] .alert-error {
+    background-color: rgba(127, 29, 29, 0.4);
+    color: #fee2e2;
+    border-color: #991b1b;
+}
+
+[data-theme="dark"] .alert-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Alert Colors - Dark Mode System Preference */
 @media (prefers-color-scheme: dark) {
-    .alert-info {
+    :root:not([data-theme="light"]) .alert-info {
         background-color: rgba(12, 74, 110, 0.4);
         color: #e0f2fe;
         border-color: #075985;
     }
 
-    .alert-success {
+    :root:not([data-theme="light"]) .alert-success {
         background-color: rgba(20, 83, 45, 0.4);
         color: #dcfce7;
         border-color: #166534;
     }
 
-    .alert-warning {
+    :root:not([data-theme="light"]) .alert-warning {
         background-color: rgba(113, 63, 18, 0.4);
         color: #fef9c3;
         border-color: #854d0e;
     }
 
-    .alert-error {
+    :root:not([data-theme="light"]) .alert-error {
         background-color: rgba(127, 29, 29, 0.4);
         color: #fee2e2;
         border-color: #991b1b;
+    }
+
+    :root:not([data-theme="light"]) .alert-close:hover {
+        background-color: rgba(255, 255, 255, 0.1);
     }
 }
 
@@ -567,4 +644,3 @@ article.daisy-card:hover {
     .daisy-chart-header { flex-direction: column; align-items: flex-start; }
     .daisy-chart-toolbar { width: 100%; overflow-x: auto; }
 }
-
