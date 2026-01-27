@@ -23,10 +23,7 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 
 ### Option 1: CDN (Recommended)
 ```html
-<!-- PicoCSS v2 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-
-<!-- Pico-Daisy UI (Add AFTER PicoCSS) -->
+<!-- Pico-Daisy UI (Includes PicoCSS v2) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.css">
 ```
 
@@ -37,7 +34,6 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 2. Include it in your HTML:
 
 ```html
-<link rel="stylesheet" href="css/pico.min.css">
 <link rel="stylesheet" href="css/pico-daisy.css">
 ```
 

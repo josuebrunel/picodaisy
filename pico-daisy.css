@@ -2,9 +2,10 @@
            A drop-in CSS file to give PicoCSS v2 the look and feel of DaisyUI.
            
            Usage:
-           1. Import PicoCSS v2
-           2. Import this file AFTER PicoCSS
+           1. Import this file (it includes PicoCSS v2)
         */
+
+@import url('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css');
 
 /* --- 1. GLOBAL THEME OVERRIDES (DaisyUI Violet) --- */
 :root {
