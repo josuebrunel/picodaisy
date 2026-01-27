@@ -222,7 +222,7 @@
 
     <main class="container">
         <!-- Hero Section -->
-        <section class="daisy-hero">
+        <section class="daisy-hero daisy-hero-splash">
             <div class="daisy-hero-content">
                 <h1>Pico-Daisy UI</h1>
                 <p class="lead">
@@ -240,6 +240,46 @@
                     <button class="secondary outline">View Docs</button>
                 </div>
             </div>
+        </section>
+
+        <!-- Hero Variants Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Hero Variants</h2>
+                <p class="demo-subtitle">Versatile layouts for your landing page.</p>
+            </div>
+
+            <div class="component-demo">
+                <!-- Split Hero -->
+                <div class="daisy-hero" style="background-color: transparent; border: none; padding: 2rem 0;">
+                    <div class="daisy-hero-content flex-row-reverse">
+                        <div style="flex: 1;">
+                            <img src="https://picsum.photos/id/1/400/300" alt="Tech Office" style="border-radius: 1rem; box-shadow: var(--pico-box-shadow-hover);">
+                        </div>
+                        <div style="flex: 1;">
+                            <h2>Modern Workflow</h2>
+                            <p>
+                                Optimize your development process with our components.
+                                Designed to be flexible, responsive, and easy to integrate.
+                            </p>
+                            <button class="primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero-content flex-row-reverse"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"image.jpg"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;h2&gt;</span>Modern Workflow<span class="tag">&lt;/h2&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Optimize your development...<span class="tag">&lt;/p&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"primary"</span><span class="tag">&gt;</span>Learn More<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
         <!-- Stats Demo -->
@@ -664,6 +704,19 @@
                     </div>
                 </div>
             </div>
+
+            <pre><code><span class="comment">&lt;!-- Single Avatar --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-avatar"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">style</span>=<span class="val">"width: 4rem;"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"avatar.jpg"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Avatar Group --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-avatar-group"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-avatar"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-avatar"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
         <!-- Join Demo -->
@@ -687,6 +740,18 @@
                     <button class="join-item">Button 3</button>
                 </div>
             </div>
+
+            <pre><code><span class="comment">&lt;!-- Input Group --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-join"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">class</span>=<span class="val">"join-item"</span> <span class="attr">placeholder</span>=<span class="val">"Search..."</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"join-item secondary"</span><span class="tag">&gt;</span>Subscribe<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Button Group --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-join"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"join-item"</span><span class="tag">&gt;</span>One<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"join-item"</span><span class="tag">&gt;</span>Two<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
         <!-- Tooltip & Loading Demo -->
@@ -708,6 +773,15 @@
                 <span class="daisy-loading loading-spinner"></span>
                 <span class="daisy-loading loading-dots"></span>
             </div>
+
+            <pre><code><span class="comment">&lt;!-- Tooltips --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">data-tip</span>=<span class="val">"Hello!"</span> <span class="attr">class</span>=<span class="val">"daisy-tooltip-top"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button&gt;</span>Hover me<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Loading Spinners --&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"daisy-loading loading-spinner"</span><span class="tag">&gt;&lt;/span&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"daisy-loading loading-dots"</span><span class="tag">&gt;&lt;/span&gt;</span></code></pre>
         </section>
 
         <!-- Toast Demo -->
@@ -728,6 +802,12 @@
                 </div>
             </div>
             <p><small>Toasts are fixed positioned by default. The above example is contained for demo purposes.</small></p>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-toast daisy-toast-end daisy-toast-bottom"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-alert alert-info"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>New message arrived.<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
         <!-- Color Palette -->
