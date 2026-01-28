@@ -647,6 +647,141 @@ article.daisy-card:hover {
 
 /* --- 3. NEW COMPONENTS --- */
 
+/* Menu / Side Navigation */
+.daisy-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    background-color: var(--pico-card-background-color);
+    border-radius: var(--pico-border-radius);
+    box-shadow: var(--pico-box-shadow);
+    border: 1px solid var(--pico-muted-border-color);
+    width: 100%;
+    max-width: 20rem; /* Default max width, can be overridden */
+    list-style-type: none;
+    margin: 0;
+}
+
+.daisy-menu li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.daisy-menu li > a,
+.daisy-menu li > span {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--pico-border-radius);
+    color: var(--pico-color);
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.daisy-menu li > a:hover,
+.daisy-menu li > span:hover {
+    background-color: var(--pico-muted-border-color);
+    text-decoration: none;
+}
+
+.daisy-menu li > a.active,
+.daisy-menu li > a:active {
+    background-color: var(--pico-primary);
+    color: var(--pico-primary-inverse);
+}
+
+.daisy-menu li > a:focus-visible {
+    outline: 2px solid var(--pico-primary);
+    outline-offset: 2px;
+}
+
+/* Menu Title */
+.daisy-menu-title {
+    padding: 0.5rem 1rem;
+    color: var(--pico-muted-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.daisy-menu li:first-child .daisy-menu-title {
+    margin-top: 0;
+}
+
+/* Collapsible / Nested Menu (Simple Accordion) */
+.daisy-menu details {
+    width: 100%;
+    margin-bottom: 0;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.daisy-menu details summary {
+    padding: 0.5rem 1rem;
+    border-radius: var(--pico-border-radius);
+    list-style: none; /* Hide default triangle */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--pico-color);
+    font-weight: 500;
+    transition: background-color 0.2s;
+    outline: none;
+    margin-bottom: 0;
+}
+
+.daisy-menu details summary::-webkit-details-marker {
+  display: none;
+}
+
+.daisy-menu details summary:hover {
+    background-color: var(--pico-muted-border-color);
+}
+
+.daisy-menu details summary::after {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.2s;
+    margin-left: 0.5rem;
+}
+
+.daisy-menu details[open] summary::after {
+    transform: rotate(225deg);
+}
+
+.daisy-menu details ul {
+    margin: 0;
+    padding-left: 1.5rem; /* Indent nested list */
+    list-style: none;
+}
+
+.daisy-menu details ul li > a {
+    padding-left: 1rem; /* Reset to standard padding, indentation is handled by ul */
+}
+
+/* Deeper nesting support */
+.daisy-menu details ul .daisy-menu-title {
+    padding-left: 1rem;
+}
+
 /* Steps Component */
 .daisy-steps {
     display: grid;
