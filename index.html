@@ -48,7 +48,7 @@
             background-image: radial-gradient(var(--pico-muted-border-color) 0.5px, transparent 0.5px);
             background-size: 12px 12px;
             position: relative;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.02);
         }
 
         .component-demo::after {
@@ -76,7 +76,7 @@
             border: 1px solid var(--pico-muted-border-color);
             margin: 1.5rem 0 0;
             font-size: 0.85rem;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         code {
@@ -84,10 +84,21 @@
             font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
         }
 
-        .tag { color: #569cd6; }
-        .attr { color: #9cdcfe; }
-        .val { color: #ce9178; }
-        .comment { color: #6a9955; }
+        .tag {
+            color: #569cd6;
+        }
+
+        .attr {
+            color: #9cdcfe;
+        }
+
+        .val {
+            color: #ce9178;
+        }
+
+        .comment {
+            color: #6a9955;
+        }
 
         /* Theme Toggle */
         .theme-toggle {
@@ -97,7 +108,7 @@
             z-index: 100;
             padding: 0.75rem 1.25rem;
             font-weight: 700;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -111,7 +122,7 @@
 
         .theme-toggle:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             background-color: var(--pico-primary);
             color: var(--pico-primary-inverse);
         }
@@ -133,9 +144,9 @@
             justify-content: center;
             color: white;
             font-weight: 700;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
             font-size: 0.9rem;
         }
 
@@ -150,10 +161,24 @@
             transform: scale(1.05) rotate(1deg);
         }
 
-        .swatch-primary { background-color: var(--pico-primary); }
-        .swatch-secondary { background-color: var(--pico-secondary); }
-        .swatch-accent { background-color: var(--pico-accent); }
-        .swatch-bg { background-color: var(--pico-background-color); color: var(--pico-color); border: 1px solid var(--pico-muted-border-color); text-shadow: none; }
+        .swatch-primary {
+            background-color: var(--pico-primary);
+        }
+
+        .swatch-secondary {
+            background-color: var(--pico-secondary);
+        }
+
+        .swatch-accent {
+            background-color: var(--pico-accent);
+        }
+
+        .swatch-bg {
+            background-color: var(--pico-background-color);
+            color: var(--pico-color);
+            border: 1px solid var(--pico-muted-border-color);
+            text-shadow: none;
+        }
 
         /* Tabs */
         .tab-container {
@@ -178,11 +203,15 @@
             font-size: 0.85rem;
         }
 
-        .tab-btn:hover { color: var(--pico-color); background-color: rgba(255,255,255,0.5); }
+        .tab-btn:hover {
+            color: var(--pico-color);
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
         .tab-btn.active {
             color: var(--pico-primary);
             background-color: var(--pico-card-background-color);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .tab-content {
@@ -250,7 +279,7 @@
             </div>
 
             <div class="component-demo">
-                <p>Simply download the CSS file and link it in your HTML <code>&lt;head&gt;</code>.</p>
+                <p>Use the CDN link or download the CSS file and link it in your HTML <code>&lt;head&gt;</code>.</p>
                 <div class="tab-container" style="flex-wrap: wrap;">
                     <button class="tab-btn active" onclick="showTab('install-default')">Default</button>
                     <button class="tab-btn" onclick="showTab('install-blue')">Blue</button>
@@ -263,36 +292,57 @@
 
                 <div id="install-default" class="tab-content active">
                     <pre><code><span class="comment">&lt;!-- Default Theme (Violet) --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.css"</span><span class="tag">&gt;</span></code></pre>
                 </div>
 
                 <div id="install-blue" class="tab-content">
                     <pre><code><span class="comment">&lt;!-- Blue Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.blue.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.blue.css"</span><span class="tag">&gt;</span></code></pre>
                 </div>
 
                 <div id="install-red" class="tab-content">
                     <pre><code><span class="comment">&lt;!-- Red Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.red.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.red.css"</span><span class="tag">&gt;</span></code></pre>
                 </div>
 
                 <div id="install-green" class="tab-content">
                     <pre><code><span class="comment">&lt;!-- Green Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.green.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.green.css"</span><span class="tag">&gt;</span></code></pre>
                 </div>
 
                 <div id="install-teal" class="tab-content">
                     <pre><code><span class="comment">&lt;!-- Teal Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.teal.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.teal.css"</span><span class="tag">&gt;</span></code></pre>
                 </div>
 
                 <div id="install-light-grey" class="tab-content">
                     <pre><code><span class="comment">&lt;!-- Light Grey Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.light-grey.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.light-grey.css"</span><span class="tag">&gt;</span></code></pre>
                 </div>
 
                 <div id="install-dark-grey" class="tab-content">
                     <pre><code><span class="comment">&lt;!-- Dark Grey Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.dark-grey.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.dark-grey.css"</span><span class="tag">&gt;</span></code></pre>
                 </div>
 
@@ -312,7 +362,8 @@
                 <div class="daisy-hero" style="background-color: transparent; border: none; padding: 2rem 0;">
                     <div class="daisy-hero-content flex-row-reverse">
                         <div style="flex: 1;">
-                            <img src="https://picsum.photos/id/1/400/300" alt="Tech Office" style="border-radius: 1rem; box-shadow: var(--pico-box-shadow-hover);">
+                            <img src="https://picsum.photos/id/1/400/300" alt="Tech Office"
+                                style="border-radius: 1rem; box-shadow: var(--pico-box-shadow-hover);">
                         </div>
                         <div style="flex: 1;">
                             <h2>Modern Workflow</h2>
@@ -341,7 +392,8 @@
 
             <div class="component-demo" style="margin-top: 2rem;">
                 <!-- Hero with Overlay -->
-                <div class="daisy-hero" style="background-image: url('https://picsum.photos/id/2/1000/400'); background-size: cover; border: none; color: white;">
+                <div class="daisy-hero"
+                    style="background-image: url('https://picsum.photos/id/2/1000/400'); background-size: cover; border: none; color: white;">
                     <div class="daisy-hero-overlay"></div>
                     <div class="daisy-hero-content" style="text-align: center; color: white;">
                         <div>
@@ -427,7 +479,8 @@
                             <strong>Success!</strong><br>
                             Your changes have been saved successfully.
                         </div>
-                        <button class="alert-close" aria-label="Close" onclick="this.parentElement.style.display='none';">×</button>
+                        <button class="alert-close" aria-label="Close"
+                            onclick="this.parentElement.style.display='none';">×</button>
                     </div>
                 </div>
                 <div>
@@ -564,7 +617,8 @@
 
             <div class="component-demo" style="text-align: center;">
                 <h4 style="margin-bottom: 1rem;">Solid Badges</h4>
-                <div class="badge-container" style="justify-content: center; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <div class="badge-container"
+                    style="justify-content: center; display: flex; gap: 0.5rem; flex-wrap: wrap;">
                     <span class="badge">Default</span>
                     <span class="badge badge-primary">Primary</span>
                     <span class="badge badge-secondary">Secondary</span>
@@ -573,7 +627,8 @@
                 </div>
 
                 <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Outline Badges</h4>
-                <div class="badge-container" style="justify-content: center; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <div class="badge-container"
+                    style="justify-content: center; display: flex; gap: 0.5rem; flex-wrap: wrap;">
                     <span class="badge badge-outline">Default</span>
                     <span class="badge badge-primary badge-outline">Primary</span>
                     <span class="badge badge-secondary badge-outline">Secondary</span>
@@ -766,7 +821,8 @@
                     <!-- Single Avatar -->
                     <div class="daisy-avatar">
                         <div style="width: 4rem;">
-                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=570df8&color=fff" alt="Avatar">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=570df8&color=fff"
+                                alt="Avatar">
                         </div>
                     </div>
 
@@ -774,7 +830,8 @@
                     <div class="daisy-avatar-group">
                         <div class="daisy-avatar">
                             <div style="width: 3rem;">
-                                <img src="https://ui-avatars.com/api/?name=Alice&background=f000b8&color=fff" alt="Alice">
+                                <img src="https://ui-avatars.com/api/?name=Alice&background=f000b8&color=fff"
+                                    alt="Alice">
                             </div>
                         </div>
                         <div class="daisy-avatar">
@@ -784,11 +841,13 @@
                         </div>
                         <div class="daisy-avatar">
                             <div style="width: 3rem;">
-                                <img src="https://ui-avatars.com/api/?name=Charlie&background=1f2937&color=fff" alt="Charlie">
+                                <img src="https://ui-avatars.com/api/?name=Charlie&background=1f2937&color=fff"
+                                    alt="Charlie">
                             </div>
                         </div>
                         <div class="daisy-avatar placeholder">
-                            <div style="width: 3rem; height: 3rem; background-color: var(--pico-muted-border-color); display: grid; place-items: center; font-weight: bold; color: var(--pico-muted-color);">
+                            <div
+                                style="width: 3rem; height: 3rem; background-color: var(--pico-muted-border-color); display: grid; place-items: center; font-weight: bold; color: var(--pico-muted-color);">
                                 +99
                             </div>
                         </div>
@@ -854,9 +913,13 @@
 
             <div class="component-demo">
                 <div style="display: flex; flex-direction: column; width: 100%;">
-                    <div style="background: var(--pico-card-background-color); padding: 1rem; border-radius: 0.5rem; text-align: center;">Content A</div>
+                    <div
+                        style="background: var(--pico-card-background-color); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                        Content A</div>
                     <div class="daisy-divider">OR</div>
-                    <div style="background: var(--pico-card-background-color); padding: 1rem; border-radius: 0.5rem; text-align: center;">Content B</div>
+                    <div
+                        style="background: var(--pico-card-background-color); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                        Content B</div>
                 </div>
             </div>
 
@@ -898,13 +961,14 @@
         </section>
 
         <!-- Toast Demo -->
-         <section class="demo-section">
+        <section class="demo-section">
             <div class="demo-header">
                 <h2 class="demo-title">Toast Component</h2>
                 <p class="demo-subtitle">Notifications that stack.</p>
             </div>
 
-            <div class="component-demo" style="position: relative; height: 200px; overflow: hidden; border: 1px dashed var(--pico-muted-border-color); background-color: var(--pico-background-color);">
+            <div class="component-demo"
+                style="position: relative; height: 200px; overflow: hidden; border: 1px dashed var(--pico-muted-border-color); background-color: var(--pico-background-color);">
                 <div class="daisy-toast daisy-toast-end daisy-toast-bottom" style="position: absolute;">
                     <div class="daisy-alert alert-info">
                         <span>New message arrived.</span>
@@ -914,7 +978,8 @@
                     </div>
                 </div>
             </div>
-            <p><small>Toasts are fixed positioned by default. The above example is contained for demo purposes.</small></p>
+            <p><small>Toasts are fixed positioned by default. The above example is contained for demo purposes.</small>
+            </p>
 
             <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-toast daisy-toast-end daisy-toast-bottom"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-alert alert-info"</span><span class="tag">&gt;</span>
@@ -1068,4 +1133,5 @@
         });
     </script>
 </body>
+
 </html>
