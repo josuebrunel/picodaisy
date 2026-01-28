@@ -22,8 +22,8 @@
     --pico-secondary-hover: #1f2937;
     --pico-secondary-inverse: #ffffff;
 
-    --pico-accent: #3b82f6;
-    --pico-accent-hover: #2563eb;
+    --pico-accent: #9ca3af;
+    --pico-accent-hover: #6b7280;
     --pico-accent-inverse: #ffffff;
 
     /* Typography */
@@ -1081,18 +1081,18 @@ input[type="checkbox"][role="switch"]:checked::after {
 /* Splash Background Variant */
 .daisy-hero.daisy-hero-splash {
     background-image:
-        radial-gradient(at 0% 0%, rgba(107, 114, 128, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(156, 163, 175, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(75, 85, 99, 0.15) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(107, 114, 128, 0.15) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, color-mix(in srgb, var(--pico-primary) 15%, transparent) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, color-mix(in srgb, var(--pico-primary) 15%, transparent) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, color-mix(in srgb, var(--pico-primary) 15%, transparent) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, color-mix(in srgb, var(--pico-primary) 15%, transparent) 0px, transparent 50%);
     background-color: var(--pico-background-color);
     background-size: 100% 100%;
 }
 
 [data-theme="dark"] .daisy-hero.daisy-hero-splash {
     background-image:
-        radial-gradient(at 0% 0%, rgba(107, 114, 128, 0.3) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(156, 163, 175, 0.3) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(75, 85, 99, 0.3) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(107, 114, 128, 0.3) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, color-mix(in srgb, var(--pico-primary) 30%, transparent) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, color-mix(in srgb, var(--pico-primary) 30%, transparent) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, color-mix(in srgb, var(--pico-primary) 30%, transparent) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, color-mix(in srgb, var(--pico-primary) 30%, transparent) 0px, transparent 50%);
 }
