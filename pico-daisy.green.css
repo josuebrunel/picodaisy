@@ -9,22 +9,22 @@
 
 /* --- 1. GLOBAL THEME OVERRIDES (Green) --- */
 :root {
-    /* Primary Color (DaisyUI Violet) */
-    --pico-primary: #16a34a;
-    --pico-primary-background: #16a34a;
-    --pico-primary-hover: #15803d;
-    --pico-primary-underline: #16a34a;
-    --pico-primary-focus: rgba(22, 163, 74, 0.35);
+    /* Primary Color (Green - 30% usage) */
+    --pico-primary: #22c55e;
+    --pico-primary-background: #22c55e;
+    --pico-primary-hover: #16a34a;
+    --pico-primary-underline: #22c55e;
+    --pico-primary-focus: rgba(34, 197, 94, 0.35);
     --pico-primary-inverse: #ffffff;
 
     /* Secondary & Accent Colors (For custom components) */
-    --pico-secondary: #d97706;
-    --pico-secondary-hover: #b45309;
+    --pico-secondary: #15803d;
+    --pico-secondary-hover: #166534;
     --pico-secondary-inverse: #ffffff;
 
-    --pico-accent: #0d9488;
-    --pico-accent-hover: #0f766e;
-    --pico-accent-inverse: #163835;
+    --pico-accent: #8b5cf6;
+    --pico-accent-hover: #7c3aed;
+    --pico-accent-inverse: #ffffff;
 
     /* Typography */
     --pico-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -44,14 +44,18 @@
     /* Light Mode Colors (Default) */
     --pico-background-color: #ffffff;
     --pico-card-background-color: #ffffff;
-    --pico-color: #1f2937; /* Gray-800 */
-    --pico-muted-color: #6b7280; /* Gray-500 */
-    --pico-muted-border-color: #e5e7eb; /* Gray-200 */
+    --pico-color: #1f2937;
+    /* Gray-800 */
+    --pico-muted-color: #6b7280;
+    /* Gray-500 */
+    --pico-muted-border-color: #e5e7eb;
+    /* Gray-200 */
 }
 
 /* Dark Mode Overrides - Explicit */
 [data-theme="dark"] {
-    --pico-background-color: #1d232a; /* Daisy Dark Base */
+    --pico-background-color: #1d232a;
+    /* Daisy Dark Base */
     --pico-card-background-color: #191e24;
     --pico-color: #a6adbb;
     --pico-muted-color: #737983;
@@ -65,7 +69,8 @@
 /* Dark Mode Overrides - System Preference (unless forced light) */
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --pico-background-color: #1d232a; /* Daisy Dark Base */
+        --pico-background-color: #1d232a;
+        /* Daisy Dark Base */
         --pico-card-background-color: #191e24;
         --pico-color: #a6adbb;
         --pico-muted-color: #737983;
@@ -148,7 +153,10 @@ nav.daisy-nav {
 .daisy-hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: radial-gradient(circle at center, transparent 0%, var(--pico-background-color) 100%);
     pointer-events: none;
 }
@@ -158,7 +166,8 @@ nav.daisy-nav {
     z-index: 1;
     max-width: 42rem;
     padding: 2.5rem;
-    background-color: var(--pico-background-color); /* Fallback */
+    background-color: var(--pico-background-color);
+    /* Fallback */
     background-color: color-mix(in srgb, var(--pico-background-color), transparent 5%);
     border-radius: 1.5rem;
     box-shadow: var(--pico-box-shadow-hover);
@@ -233,7 +242,7 @@ nav.daisy-nav {
     border: 1px solid transparent;
 }
 
-.daisy-alert > span {
+.daisy-alert>span {
     font-size: 1.5rem;
     line-height: 1;
 }
@@ -382,7 +391,7 @@ nav.daisy-nav {
     font-size: 0.95rem;
     line-height: 1.5;
     position: relative;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .chat-start .chat-bubble {
@@ -422,7 +431,8 @@ article.daisy-card:hover {
     font-size: 0.75rem;
     line-height: 1;
     padding: 0 0.75rem;
-    border-radius: 9999px; /* Full pill shape */
+    border-radius: 9999px;
+    /* Full pill shape */
     border: 1px solid transparent;
     background-color: var(--pico-muted-border-color);
     color: var(--pico-color);
@@ -465,9 +475,17 @@ article.daisy-card:hover {
     color: inherit;
 }
 
-.badge-primary.badge-outline { color: var(--pico-primary); }
-.badge-secondary.badge-outline { color: var(--pico-secondary); }
-.badge-accent.badge-outline { color: var(--pico-accent); }
+.badge-primary.badge-outline {
+    color: var(--pico-primary);
+}
+
+.badge-secondary.badge-outline {
+    color: var(--pico-secondary);
+}
+
+.badge-accent.badge-outline {
+    color: var(--pico-accent);
+}
 
 /* --- CHART COMPONENTS (Option 2: Wrapper Classes) --- */
 .daisy-chart-wrapper {
@@ -516,7 +534,8 @@ article.daisy-card:hover {
 .daisy-chart-toolbar {
     display: flex;
     gap: 0.25rem;
-    background: var(--pico-muted-border-color); /* Segmented control style bg */
+    background: var(--pico-muted-border-color);
+    /* Segmented control style bg */
     padding: 0.25rem;
     border-radius: 0.5rem;
 }
@@ -536,13 +555,13 @@ article.daisy-card:hover {
 
 .chart-toolbar-btn:hover {
     color: var(--pico-color);
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .chart-toolbar-btn.active {
     background-color: var(--pico-card-background-color);
     color: var(--pico-primary);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Chart Legend */
@@ -568,23 +587,44 @@ article.daisy-card:hover {
 }
 
 .legend-item:hover {
-    background-color: rgba(0,0,0,0.03);
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 .legend-color {
     width: 10px;
     height: 10px;
-    border-radius: 50%; /* Circle legend */
+    border-radius: 50%;
+    /* Circle legend */
     flex-shrink: 0;
 }
 
-.legend-color.primary { background-color: var(--pico-primary); }
-.legend-color.secondary { background-color: var(--pico-secondary); }
-.legend-color.accent { background-color: var(--pico-accent); }
-.legend-color.success { background-color: #10b981; }
-.legend-color.warning { background-color: #f59e0b; }
-.legend-color.error { background-color: #ef4444; }
-.legend-color.neutral { background-color: var(--pico-muted-border-color); }
+.legend-color.primary {
+    background-color: var(--pico-primary);
+}
+
+.legend-color.secondary {
+    background-color: var(--pico-secondary);
+}
+
+.legend-color.accent {
+    background-color: var(--pico-accent);
+}
+
+.legend-color.success {
+    background-color: #10b981;
+}
+
+.legend-color.warning {
+    background-color: #f59e0b;
+}
+
+.legend-color.error {
+    background-color: #ef4444;
+}
+
+.legend-color.neutral {
+    background-color: var(--pico-muted-border-color);
+}
 
 /* Chart Loading/Empty States */
 .daisy-chart-loading,
@@ -609,7 +649,9 @@ article.daisy-card:hover {
 }
 
 @keyframes chart-spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .chart-empty-icon {
@@ -640,9 +682,19 @@ article.daisy-card:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .daisy-chart-wrapper { padding: 1rem; }
-    .daisy-chart-header { flex-direction: column; align-items: flex-start; }
-    .daisy-chart-toolbar { width: 100%; overflow-x: auto; }
+    .daisy-chart-wrapper {
+        padding: 1rem;
+    }
+
+    .daisy-chart-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .daisy-chart-toolbar {
+        width: 100%;
+        overflow-x: auto;
+    }
 }
 
 /* --- 3. NEW COMPONENTS --- */
@@ -705,7 +757,7 @@ article.daisy-card:hover {
     color: var(--pico-primary-inverse);
 }
 
-.daisy-step-primary + .daisy-step-primary:before {
+.daisy-step-primary+.daisy-step-primary:before {
     background-color: var(--pico-primary);
 }
 
@@ -719,19 +771,39 @@ article.daisy-card:hover {
     white-space: nowrap;
     z-index: 1000;
     padding: 1rem;
-    pointer-events: none; /* Let clicks pass through, enable on children if needed */
+    pointer-events: none;
+    /* Let clicks pass through, enable on children if needed */
 }
 
-.daisy-toast > * {
+.daisy-toast>* {
     pointer-events: auto;
 }
 
-.daisy-toast-top { top: 0; }
-.daisy-toast-bottom { bottom: 0; }
-.daisy-toast-start { left: 0; }
-.daisy-toast-center { left: 50%; transform: translateX(-50%); }
-.daisy-toast-end { right: 0; }
-.daisy-toast-middle { top: 50%; transform: translateY(-50%); }
+.daisy-toast-top {
+    top: 0;
+}
+
+.daisy-toast-bottom {
+    bottom: 0;
+}
+
+.daisy-toast-start {
+    left: 0;
+}
+
+.daisy-toast-center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.daisy-toast-end {
+    right: 0;
+}
+
+.daisy-toast-middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
 
 /* Tooltip Component */
 [data-tip] {
@@ -801,11 +873,12 @@ article.daisy-card:hover {
     display: inline-flex;
 }
 
-.daisy-avatar > div {
+.daisy-avatar>div {
     display: block;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    border-radius: 50%; /* Default rounded */
+    border-radius: 50%;
+    /* Default rounded */
 }
 
 .daisy-avatar img {
@@ -837,26 +910,27 @@ article.daisy-card:hover {
     box-shadow: var(--pico-box-shadow);
 }
 
-.daisy-join > * {
+.daisy-join>* {
     border-radius: 0;
     margin: 0;
 }
 
-.daisy-join > *:first-child {
+.daisy-join>*:first-child {
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
 }
 
-.daisy-join > *:last-child {
+.daisy-join>*:last-child {
     border-top-right-radius: inherit;
     border-bottom-right-radius: inherit;
 }
 
-.daisy-join > *:not(:first-child) {
-    margin-left: -1px; /* Overlap borders */
+.daisy-join>*:not(:first-child) {
+    margin-left: -1px;
+    /* Overlap borders */
 }
 
-.daisy-join > *:focus {
+.daisy-join>*:focus {
     z-index: 1;
     position: relative;
 }
@@ -941,7 +1015,7 @@ input[type="checkbox"][role="switch"]::after {
     height: calc(1.5rem - 4px);
     border-radius: 50%;
     background-color: white;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
@@ -950,7 +1024,8 @@ input[type="checkbox"][role="switch"]:checked::after {
 }
 
 [data-theme="dark"] input[type="checkbox"][role="switch"] {
-    background-color: #374151; /* Darker gray for off state in dark mode */
+    background-color: #374151;
+    /* Darker gray for off state in dark mode */
 }
 
 [data-theme="dark"] input[type="checkbox"][role="switch"]:checked {
@@ -962,8 +1037,12 @@ input[type="checkbox"][role="switch"]:checked::after {
 /* Hero Overlay - For background images */
 .daisy-hero-overlay {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Neutral overlay */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Neutral overlay */
     z-index: 0;
 }
 
@@ -978,11 +1057,13 @@ input[type="checkbox"][role="switch"]:checked::after {
 
 /* Side-by-side on desktop */
 @media (min-width: 768px) {
+
     .daisy-hero-content.flex-row,
     .daisy-hero-content.flex-row-reverse {
         flex-direction: row;
         text-align: left;
-        max-width: 60rem; /* Wider for side-by-side */
+        max-width: 60rem;
+        /* Wider for side-by-side */
         gap: 3rem;
     }
 
@@ -992,7 +1073,8 @@ input[type="checkbox"][role="switch"]:checked::after {
 
     .daisy-hero-content.flex-row h1,
     .daisy-hero-content.flex-row-reverse h1 {
-        font-size: 3rem; /* Larger title for side-by-side */
+        font-size: 3rem;
+        /* Larger title for side-by-side */
     }
 }
 

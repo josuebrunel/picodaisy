@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pico-Daisy UI - Modern Theme for PicoCSS</title>
+    <!-- Pico-Daisy UI (Includes PicoCSS v2) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.red.css">
+    <style>
+        /* Demo Utilities - Kept separate from the library */
+        .demo-section {
+            padding: 4rem 0;
+            border-bottom: 1px dashed var(--pico-muted-border-color);
+        }
+
+        .demo-header {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .demo-title {
+            color: var(--pico-primary);
+            display: inline-block;
+            position: relative;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .demo-subtitle {
+            color: var(--pico-muted-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .component-demo {
+            border: 1px solid var(--pico-muted-border-color);
+            border-radius: var(--pico-border-radius);
+            padding: 2rem;
+            background-color: var(--pico-card-background-color);
+            background-image: radial-gradient(var(--pico-muted-border-color) 0.5px, transparent 0.5px);
+            background-size: 12px 12px;
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .component-demo::after {
+            content: 'Preview';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--pico-muted-border-color);
+            color: var(--pico-muted-color);
+            font-size: 0.65rem;
+            padding: 0.2rem 0.6rem;
+            border-bottom-left-radius: var(--pico-border-radius);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Syntax Highlighting Mock */
+        pre {
+            background-color: #1e1e1e !important;
+            color: #d4d4d4;
+            padding: 1.25rem;
+            border-radius: var(--pico-border-radius);
+            overflow-x: auto;
+            border: 1px solid var(--pico-muted-border-color);
+            margin: 1.5rem 0 0;
+            font-size: 0.85rem;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        code {
+            color: #9cdcfe;
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+        }
+
+        .tag {
+            color: #569cd6;
+        }
+
+        .attr {
+            color: #9cdcfe;
+        }
+
+        .val {
+            color: #ce9178;
+        }
+
+        .comment {
+            color: #6a9955;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            padding: 0.75rem 1.25rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            background-color: color-mix(in srgb, var(--pico-background-color), transparent 10%);
+            border: 1px solid var(--pico-primary);
+            color: var(--pico-primary);
+            border-radius: 9999px;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background-color: var(--pico-primary);
+            color: var(--pico-primary-inverse);
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .color-swatch {
+            height: 100px;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .color-swatch small {
+            font-weight: 400;
+            opacity: 0.9;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .swatch-primary {
+            background-color: var(--pico-primary);
+        }
+
+        .swatch-secondary {
+            background-color: var(--pico-secondary);
+        }
+
+        .swatch-accent {
+            background-color: var(--pico-accent);
+        }
+
+        .swatch-bg {
+            background-color: var(--pico-background-color);
+            color: var(--pico-color);
+            border: 1px solid var(--pico-muted-border-color);
+            text-shadow: none;
+        }
+
+        /* Tabs */
+        .tab-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0;
+            padding: 0.5rem;
+            background: var(--pico-muted-border-color);
+            border-radius: 0.5rem 0.5rem 0 0;
+            width: fit-content;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            color: var(--pico-muted-color);
+            font-weight: 600;
+            transition: all 0.2s;
+            border-radius: 0.25rem;
+            font-size: 0.85rem;
+        }
+
+        .tab-btn:hover {
+            color: var(--pico-color);
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .tab-btn.active {
+            color: var(--pico-primary);
+            background-color: var(--pico-card-background-color);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+            position: relative;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 2rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #d4d4d4;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            padding: 4rem 0;
+            border-top: 1px solid var(--pico-muted-border-color);
+            background-color: var(--pico-card-background-color);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="daisy-nav">
+        <ul>
+            <li><strong>🎨 Pico-Daisy UI</strong></li>
+            <li><a href="#components" class="secondary">Components</a></li>
+            <li><a href="#forms" class="secondary">Forms</a></li>
+            <li><a href="#charts" class="secondary">Charts</a></li>
+        </ul>
+        <ul>
+            <li>
+                <a href="https://github.com/josuebrunel/picodaisy" role="button" class="outline contrast">GitHub</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="daisy-hero daisy-hero-splash">
+            <div class="daisy-hero-content">
+                <h1>Pico-Daisy UI</h1>
+                <p class="lead">
+                    A beautiful DaisyUI-inspired theme for PicoCSS v2.
+                    All the simplicity of PicoCSS with the aesthetic beauty of DaisyUI.
+                </p>
+                <div class="badge-container" style="justify-content: center; gap: 0.5rem; display: flex;">
+                    <span class="badge badge-primary">Pure CSS</span>
+                    <span class="badge badge-secondary">No JavaScript</span>
+                    <span class="badge badge-accent">Responsive</span>
+                    <span class="badge badge-outline">MIT Licensed</span>
+                </div>
+                <div style="margin-top: 2rem;">
+                    <button class="contrast">Get Started</button>
+                    <button class="secondary outline">View Docs</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Installation</h2>
+                <p class="demo-subtitle">Get started with Pico-Daisy UI in seconds.</p>
+            </div>
+
+            <div class="component-demo">
+                <p>Use the CDN link or download the CSS file and link it in your HTML <code>&lt;head&gt;</code>.</p>
+                <div class="tab-container" style="flex-wrap: wrap;">
+                    <button class="tab-btn active" onclick="showTab('install-default')">Default</button>
+                    <button class="tab-btn" onclick="showTab('install-blue')">Blue</button>
+                    <button class="tab-btn" onclick="showTab('install-red')">Red</button>
+                    <button class="tab-btn" onclick="showTab('install-green')">Green</button>
+                    <button class="tab-btn" onclick="showTab('install-teal')">Teal</button>
+                    <button class="tab-btn" onclick="showTab('install-light-grey')">Light Grey</button>
+                    <button class="tab-btn" onclick="showTab('install-dark-grey')">Dark Grey</button>
+                </div>
+
+                <div id="install-default" class="tab-content active">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre><code><span class="comment">&lt;!-- Default Theme (Violet) --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="install-blue" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre><code><span class="comment">&lt;!-- Blue Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.blue.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.blue.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="install-red" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre><code><span class="comment">&lt;!-- Red Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.red.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.red.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="install-green" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre><code><span class="comment">&lt;!-- Green Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.green.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.green.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="install-teal" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre><code><span class="comment">&lt;!-- Teal Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.teal.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.teal.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="install-light-grey" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre><code><span class="comment">&lt;!-- Light Grey Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.light-grey.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.light-grey.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="install-dark-grey" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre><code><span class="comment">&lt;!-- Dark Grey Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.dark-grey.css"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or local file --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.dark-grey.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <p><small>Note: Each file includes PicoCSS v2 automatically via <code>@import</code>.</small></p>
+            </div>
+        </section>
+
+        <!-- Hero Variants Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Hero Variants</h2>
+                <p class="demo-subtitle">Versatile layouts for your landing page.</p>
+            </div>
+
+            <div class="component-demo">
+                <!-- Split Hero -->
+                <div class="daisy-hero" style="background-color: transparent; border: none; padding: 2rem 0;">
+                    <div class="daisy-hero-content flex-row-reverse">
+                        <div style="flex: 1;">
+                            <img src="https://picsum.photos/id/1/400/300" alt="Tech Office"
+                                style="border-radius: 1rem; box-shadow: var(--pico-box-shadow-hover);">
+                        </div>
+                        <div style="flex: 1;">
+                            <h2>Modern Workflow</h2>
+                            <p>
+                                Optimize your development process with our components.
+                                Designed to be flexible, responsive, and easy to integrate.
+                            </p>
+                            <button class="primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero-content flex-row-reverse"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"image.jpg"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;h2&gt;</span>Modern Workflow<span class="tag">&lt;/h2&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Optimize your development...<span class="tag">&lt;/p&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"primary"</span><span class="tag">&gt;</span>Learn More<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+
+            <div class="component-demo" style="margin-top: 2rem;">
+                <!-- Hero with Overlay -->
+                <div class="daisy-hero"
+                    style="background-image: url('https://picsum.photos/id/2/1000/400'); background-size: cover; border: none; color: white;">
+                    <div class="daisy-hero-overlay"></div>
+                    <div class="daisy-hero-content" style="text-align: center; color: white;">
+                        <div>
+                            <h2 style="color: white;">Hero with Overlay</h2>
+                            <p style="color: rgba(255,255,255,0.9);">
+                                Use an overlay to make text readable on busy background images.
+                            </p>
+                            <button class="primary">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="comment">&lt;!-- Hero with Overlay --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero"</span> <span class="attr">style</span>=<span class="val">"background-image: url(bg.jpg);"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero-overlay"</span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-hero-content"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;h1&gt;</span>Title<span class="tag">&lt;/h1&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Description...<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Stats Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title" id="stats">Stats Component</h2>
+                <p class="demo-subtitle">Display key metrics with style using the responsive stats component.</p>
+            </div>
+
+            <div class="component-demo">
+                <div class="daisy-stats">
+                    <div class="daisy-stat">
+                        <div class="daisy-stat-value">12.8k</div>
+                        <div class="daisy-stat-title">Total Users</div>
+                    </div>
+                    <div class="daisy-stat">
+                        <div class="daisy-stat-value">89%</div>
+                        <div class="daisy-stat-title">Satisfaction</div>
+                    </div>
+                    <div class="daisy-stat">
+                        <div class="daisy-stat-value">99.9%</div>
+                        <div class="daisy-stat-title">Uptime</div>
+                    </div>
+                    <div class="daisy-stat">
+                        <div class="daisy-stat-value">3.2s</div>
+                        <div class="daisy-stat-title">Response</div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-stats"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-stat"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-stat-value"</span><span class="tag">&gt;</span>12.8k<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-stat-title"</span><span class="tag">&gt;</span>Total Users<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="comment">&lt;!-- More stats... --&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Alerts Demo -->
+        <section class="demo-section" id="components">
+            <div class="demo-header">
+                <h2 class="demo-title">Alert Components</h2>
+                <p class="demo-subtitle">Feedback components for user actions.</p>
+            </div>
+
+            <div class="component-grid">
+                <div>
+                    <div class="daisy-alert alert-info">
+                        <span>ℹ</span>
+                        <div>
+                            <strong>Information</strong><br>
+                            This is an informational alert with details.
+                        </div>
+                    </div>
+
+                    <div class="daisy-alert alert-success">
+                        <span>✓</span>
+                        <div>
+                            <strong>Success!</strong><br>
+                            Your changes have been saved successfully.
+                        </div>
+                        <button class="alert-close" aria-label="Close"
+                            onclick="this.parentElement.style.display='none';">×</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="daisy-alert alert-warning">
+                        <span>⚠</span>
+                        <div>
+                            <strong>Warning</strong><br>
+                            Please review your configuration settings.
+                        </div>
+                    </div>
+
+                    <div class="daisy-alert alert-error">
+                        <span>✗</span>
+                        <div>
+                            <strong>Error</strong><br>
+                            Unable to process your request. Please try again.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-alert alert-info"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;span&gt;</span>ℹ<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;div&gt;</span>
+    <span class="tag">&lt;strong&gt;</span>Information<span class="tag">&lt;/strong&gt;</span><span class="tag">&lt;br&gt;</span>
+    This is an informational alert.
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Alert with close button --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-alert alert-success"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;span&gt;</span>✓<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;div&gt;</span><span class="tag">&lt;strong&gt;</span>Success!<span class="tag">&lt;/strong&gt;</span> Saved successfully.<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"alert-close"</span><span class="tag">&gt;</span>×<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Chat Bubbles -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Chat Bubbles</h2>
+                <p class="demo-subtitle">Conversation UI elements.</p>
+            </div>
+
+            <div class="component-demo">
+                <div class="daisy-chat">
+                    <div class="chat-message chat-start">
+                        <div class="chat-bubble">
+                            Hey there! How can I help you today?
+                        </div>
+                    </div>
+                    <div class="chat-message chat-end">
+                        <div class="chat-bubble">
+                            I'm interested in learning about Pico-Daisy UI components.
+                        </div>
+                    </div>
+                    <div class="chat-message chat-start">
+                        <div class="chat-bubble">
+                            Great choice! It combines PicoCSS simplicity with DaisyUI aesthetics.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-chat"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"chat-message chat-start"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"chat-bubble"</span><span class="tag">&gt;</span>Hey there!<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"chat-message chat-end"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"chat-bubble"</span><span class="tag">&gt;</span>Hello!<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Cards -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Card Components</h2>
+                <p class="demo-subtitle">Versatile containers for content.</p>
+            </div>
+
+            <div class="component-grid">
+                <article class="daisy-card">
+                    <header>
+                        <h3>Basic Card</h3>
+                        <span class="badge badge-primary">Featured</span>
+                    </header>
+                    <p>
+                        This is a basic card with the <code>.daisy-card</code> class.
+                        It has subtle shadows and a hover effect.
+                    </p>
+                    <footer>
+                        <button class="secondary outline">Cancel</button>
+                        <button>Action</button>
+                    </footer>
+                </article>
+
+                <article class="daisy-card">
+                    <header>
+                        <h3>Card with Image</h3>
+                        <span class="badge badge-secondary">Popular</span>
+                    </header>
+                    <div
+                        style="height: 140px; background: linear-gradient(135deg, var(--pico-primary) 0%, var(--pico-secondary) 100%); border-radius: 0.5rem; margin-bottom: 1rem;">
+                    </div>
+                    <p>
+                        Cards can contain images, forms, or any other content.
+                        The styling remains consistent across all cards.
+                    </p>
+                    <footer>
+                        <button class="outline">Learn More</button>
+                    </footer>
+                </article>
+            </div>
+
+            <pre><code><span class="tag">&lt;article</span> <span class="attr">class</span>=<span class="val">"daisy-card"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;header&gt;</span>
+    <span class="tag">&lt;h3&gt;</span>Card Title<span class="tag">&lt;/h3&gt;</span>
+    <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge badge-primary"</span><span class="tag">&gt;</span>Badge<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;/header&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Card content goes here...<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;footer&gt;</span>
+    <span class="tag">&lt;button&gt;</span>Action<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;/footer&gt;</span>
+<span class="tag">&lt;/article&gt;</span></code></pre>
+        </section>
+
+        <!-- Badges -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Badge Components</h2>
+                <p class="demo-subtitle">Small status indicators.</p>
+            </div>
+
+            <div class="component-demo" style="text-align: center;">
+                <h4 style="margin-bottom: 1rem;">Solid Badges</h4>
+                <div class="badge-container"
+                    style="justify-content: center; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span class="badge">Default</span>
+                    <span class="badge badge-primary">Primary</span>
+                    <span class="badge badge-secondary">Secondary</span>
+                    <span class="badge badge-accent">Accent</span>
+                    <span class="badge badge-ghost">Ghost</span>
+                </div>
+
+                <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Outline Badges</h4>
+                <div class="badge-container"
+                    style="justify-content: center; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span class="badge badge-outline">Default</span>
+                    <span class="badge badge-primary badge-outline">Primary</span>
+                    <span class="badge badge-secondary badge-outline">Secondary</span>
+                    <span class="badge badge-accent badge-outline">Accent</span>
+                </div>
+            </div>
+
+            <pre><code><span class="comment">&lt;!-- Solid Badges --&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge"</span><span class="tag">&gt;</span>Default<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge badge-primary"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/span&gt;</span>
+
+<span class="comment">&lt;!-- Outline Badges --&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge badge-outline"</span><span class="tag">&gt;</span>Default<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"badge badge-primary badge-outline"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/span&gt;</span></code></pre>
+        </section>
+
+        <!-- Forms -->
+        <section class="demo-section" id="forms">
+            <div class="demo-header">
+                <h2 class="demo-title">Form Elements</h2>
+                <p class="demo-subtitle">Enhanced form controls with focus states.</p>
+            </div>
+
+            <div class="component-demo">
+                <form>
+                    <div class="grid">
+                        <label for="firstName">
+                            First Name
+                            <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                        </label>
+
+                        <label for="lastName">
+                            Last Name
+                            <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                        </label>
+                    </div>
+
+                    <label for="email">
+                        Email Address
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </label>
+
+                    <label for="country">
+                        Country
+                        <select id="country" name="country" required>
+                            <option value="" selected disabled>Select a country</option>
+                            <option value="us">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="ca">Canada</option>
+                        </select>
+                    </label>
+
+                    <fieldset>
+                        <legend>Preferences</legend>
+                        <label for="newsletter">
+                            <input type="checkbox" id="newsletter" name="newsletter" role="switch">
+                            Subscribe to newsletter
+                        </label>
+                    </fieldset>
+
+                    <div class="grid" style="margin-top: 1rem;">
+                        <button type="submit">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+
+            <pre><code><span class="tag">&lt;form&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"grid"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;label&gt;</span>
+      First Name
+      <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">placeholder</span>=<span class="val">"John"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;label&gt;</span>
+      Last Name
+      <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">placeholder</span>=<span class="val">"Doe"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;label&gt;</span>
+    Email
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">placeholder</span>=<span class="val">"email@example.com"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;fieldset&gt;</span>
+    <span class="tag">&lt;label&gt;</span>
+      <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"checkbox"</span> <span class="attr">role</span>=<span class="val">"switch"</span><span class="tag">&gt;</span>
+      Subscribe to newsletter
+    <span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;/fieldset&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Submit<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></code></pre>
+        </section>
+
+        <!-- Chart Wrappers -->
+        <section class="demo-section" id="charts">
+            <div class="demo-header">
+                <h2 class="demo-title">Chart Wrappers</h2>
+                <p class="demo-subtitle">Containers for your data visualizations.</p>
+            </div>
+
+            <div class="component-demo">
+                <div class="daisy-chart-wrapper">
+                    <div class="daisy-chart-header">
+                        <div>
+                            <h3 class="daisy-chart-title">Website Analytics</h3>
+                            <p class="daisy-chart-subtitle">Monthly traffic and engagement metrics</p>
+                        </div>
+                        <div class="daisy-chart-toolbar">
+                            <button class="chart-toolbar-btn active">1M</button>
+                            <button class="chart-toolbar-btn">3M</button>
+                            <button class="chart-toolbar-btn">6M</button>
+                            <button class="chart-toolbar-btn">1Y</button>
+                        </div>
+                    </div>
+
+                    <!-- Chart placeholder -->
+                    <div
+                        style="height: 300px; background: linear-gradient(180deg, var(--pico-card-background-color) 0%, var(--pico-background-color) 100%); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: var(--pico-muted-color); border: 1px dashed var(--pico-muted-border-color);">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                            <p>Chart.js / ApexCharts / Other Library</p>
+                            <small>Your chart visualization would render here</small>
+                        </div>
+                    </div>
+
+                    <div class="daisy-chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-color primary"></span>
+                            <span>Organic Traffic</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color secondary"></span>
+                            <span>Direct Traffic</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color accent"></span>
+                            <span>Referral Traffic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-chart-wrapper"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-chart-header"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div&gt;</span>
+      <span class="tag">&lt;h3</span> <span class="attr">class</span>=<span class="val">"daisy-chart-title"</span><span class="tag">&gt;</span>Analytics<span class="tag">&lt;/h3&gt;</span>
+      <span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="val">"daisy-chart-subtitle"</span><span class="tag">&gt;</span>Monthly traffic<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-chart-toolbar"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"chart-toolbar-btn active"</span><span class="tag">&gt;</span>1M<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+
+  <span class="comment">&lt;!-- Chart Container --&gt;</span>
+  <span class="tag">&lt;div&gt;</span>
+    <span class="tag">&lt;canvas</span> <span class="attr">id</span>=<span class="val">"myChart"</span><span class="tag">&gt;</span><span class="tag">&lt;/canvas&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Steps Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Steps Component</h2>
+                <p class="demo-subtitle">Progress indicators for multi-step workflows.</p>
+            </div>
+
+            <div class="component-demo">
+                <ul class="daisy-steps">
+                    <li class="daisy-step daisy-step-primary">Register</li>
+                    <li class="daisy-step daisy-step-primary">Choose Plan</li>
+                    <li class="daisy-step">Purchase</li>
+                    <li class="daisy-step">Receive Product</li>
+                </ul>
+            </div>
+
+            <pre><code><span class="tag">&lt;ul</span> <span class="attr">class</span>=<span class="val">"daisy-steps"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li</span> <span class="attr">class</span>=<span class="val">"daisy-step daisy-step-primary"</span><span class="tag">&gt;</span>Register<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li</span> <span class="attr">class</span>=<span class="val">"daisy-step"</span><span class="tag">&gt;</span>Choose Plan<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></code></pre>
+        </section>
+
+        <!-- Avatar Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Avatar Component</h2>
+                <p class="demo-subtitle">Profile pictures and groups.</p>
+            </div>
+
+            <div class="component-demo">
+                <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                    <!-- Single Avatar -->
+                    <div class="daisy-avatar">
+                        <div style="width: 4rem;">
+                            <img src="https://ui-avatars.com/api/?name=John+Doe&background=570df8&color=fff"
+                                alt="Avatar">
+                        </div>
+                    </div>
+
+                    <!-- Avatar Group -->
+                    <div class="daisy-avatar-group">
+                        <div class="daisy-avatar">
+                            <div style="width: 3rem;">
+                                <img src="https://ui-avatars.com/api/?name=Alice&background=f000b8&color=fff"
+                                    alt="Alice">
+                            </div>
+                        </div>
+                        <div class="daisy-avatar">
+                            <div style="width: 3rem;">
+                                <img src="https://ui-avatars.com/api/?name=Bob&background=37cdbe&color=fff" alt="Bob">
+                            </div>
+                        </div>
+                        <div class="daisy-avatar">
+                            <div style="width: 3rem;">
+                                <img src="https://ui-avatars.com/api/?name=Charlie&background=1f2937&color=fff"
+                                    alt="Charlie">
+                            </div>
+                        </div>
+                        <div class="daisy-avatar placeholder">
+                            <div
+                                style="width: 3rem; height: 3rem; background-color: var(--pico-muted-border-color); display: grid; place-items: center; font-weight: bold; color: var(--pico-muted-color);">
+                                +99
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="comment">&lt;!-- Single Avatar --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-avatar"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">style</span>=<span class="val">"width: 4rem;"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"avatar.jpg"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Avatar Group --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-avatar-group"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-avatar"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-avatar"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Join Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Join Component</h2>
+                <p class="demo-subtitle">Group items together seamlessly.</p>
+            </div>
+
+            <div class="component-demo">
+                <div class="daisy-join">
+                    <input class="join-item" placeholder="Search..." style="max-width: 200px;" />
+                    <button class="join-item secondary">Subscribe</button>
+                </div>
+
+                <div class="daisy-divider">OR</div>
+
+                <div class="daisy-join">
+                    <button class="join-item">Button 1</button>
+                    <button class="join-item">Button 2</button>
+                    <button class="join-item">Button 3</button>
+                </div>
+            </div>
+
+            <pre><code><span class="comment">&lt;!-- Input Group --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-join"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">class</span>=<span class="val">"join-item"</span> <span class="attr">placeholder</span>=<span class="val">"Search..."</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"join-item secondary"</span><span class="tag">&gt;</span>Subscribe<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Button Group --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-join"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"join-item"</span><span class="tag">&gt;</span>One<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"join-item"</span><span class="tag">&gt;</span>Two<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Divider Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Divider Component</h2>
+                <p class="demo-subtitle">Visually separate content.</p>
+            </div>
+
+            <div class="component-demo">
+                <div style="display: flex; flex-direction: column; width: 100%;">
+                    <div
+                        style="background: var(--pico-card-background-color); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                        Content A</div>
+                    <div class="daisy-divider">OR</div>
+                    <div
+                        style="background: var(--pico-card-background-color); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                        Content B</div>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"flex flex-col w-full"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span><span class="tag">&gt;</span>Content A<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-divider"</span><span class="tag">&gt;</span>OR<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span><span class="tag">&gt;</span>Content B<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Tooltip & Loading Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Tooltips & Loading</h2>
+                <p class="demo-subtitle">Feedback and state indicators.</p>
+            </div>
+
+            <div class="component-demo" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                <div data-tip="Hello!" class="daisy-tooltip-top">
+                    <button class="outline">Hover me</button>
+                </div>
+
+                <div data-tip="Bottom tooltip" class="daisy-tooltip-bottom">
+                    <button class="outline secondary">Hover me too</button>
+                </div>
+
+                <span class="daisy-loading loading-spinner"></span>
+                <span class="daisy-loading loading-dots"></span>
+            </div>
+
+            <pre><code><span class="comment">&lt;!-- Tooltips --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">data-tip</span>=<span class="val">"Hello!"</span> <span class="attr">class</span>=<span class="val">"daisy-tooltip-top"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button&gt;</span>Hover me<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Loading Spinners --&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"daisy-loading loading-spinner"</span><span class="tag">&gt;&lt;/span&gt;</span>
+<span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"daisy-loading loading-dots"</span><span class="tag">&gt;&lt;/span&gt;</span></code></pre>
+        </section>
+
+        <!-- Toast Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Toast Component</h2>
+                <p class="demo-subtitle">Notifications that stack.</p>
+            </div>
+
+            <div class="component-demo"
+                style="position: relative; height: 200px; overflow: hidden; border: 1px dashed var(--pico-muted-border-color); background-color: var(--pico-background-color);">
+                <div class="daisy-toast daisy-toast-end daisy-toast-bottom" style="position: absolute;">
+                    <div class="daisy-alert alert-info">
+                        <span>New message arrived.</span>
+                    </div>
+                    <div class="daisy-alert alert-success">
+                        <span>Message sent successfully.</span>
+                    </div>
+                </div>
+            </div>
+            <p><small>Toasts are fixed positioned by default. The above example is contained for demo purposes.</small>
+            </p>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-toast daisy-toast-end daisy-toast-bottom"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"daisy-alert alert-info"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>New message arrived.<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </section>
+
+        <!-- Color Palette -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Color Palette</h2>
+                <p class="demo-subtitle">The vibrant colors that define the theme.</p>
+            </div>
+
+            <div class="color-grid">
+                <div class="color-swatch swatch-primary">
+                    Primary
+                    <small>#570df8</small>
+                </div>
+                <div class="color-swatch swatch-secondary">
+                    Secondary
+                    <small>#f000b8</small>
+                </div>
+                <div class="color-swatch swatch-accent">
+                    Accent
+                    <small>#37cdbe</small>
+                </div>
+                <div class="color-swatch swatch-bg">
+                    Base
+                    <small>Auto</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theme Toggle Instructions -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Dark Mode</h2>
+                <p class="demo-subtitle">Seamless switching between light and dark themes.</p>
+            </div>
+
+            <div class="component-demo">
+                <div class="tab-container">
+                    <button class="tab-btn active" onclick="showTab('html-tab')">HTML</button>
+                    <button class="tab-btn" onclick="showTab('js-tab')">JavaScript</button>
+                </div>
+
+                <div id="html-tab" class="tab-content active">
+                    <pre><code><span class="comment">&lt;!-- Set initial theme --&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">data-theme</span>=<span class="val">"dark"</span><span class="tag">&gt;</span>
+
+<span class="comment">&lt;!-- Or light theme --&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">data-theme</span>=<span class="val">"light"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="js-tab" class="tab-content">
+                    <pre><code><span class="comment">// Toggle theme function</span>
+<span class="tag">function</span> <span class="attr">toggleTheme</span>() {
+    <span class="tag">const</span> html = document.documentElement;
+    <span class="tag">const</span> currentTheme = html.getAttribute(<span class="val">'data-theme'</span>);
+    <span class="tag">const</span> newTheme = currentTheme === <span class="val">'dark'</span> ? <span class="val">'light'</span> : <span class="val">'dark'</span>;
+    html.setAttribute(<span class="val">'data-theme'</span>, newTheme);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                <strong>Pico-Daisy UI</strong>
+                <br>
+                A beautiful DaisyUI-inspired theme for PicoCSS v2
+            </p>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 0.5rem;">
+                <span class="badge badge-outline">PicoCSS v2</span>
+                <span class="badge badge-outline">DaisyUI</span>
+                <span class="badge badge-outline">MIT</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+        <span id="theme-icon">🌙</span>
+        <span id="theme-text">Dark Mode</span>
+    </button>
+
+    <script>
+        // Theme toggle logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+
+            updateThemeButton(newTheme);
+        }
+
+        function updateThemeButton(theme) {
+            const icon = document.getElementById('theme-icon');
+            const text = document.getElementById('theme-text');
+
+            if (theme === 'dark') {
+                icon.textContent = '☀️';
+                text.textContent = 'Light Mode';
+            } else {
+                icon.textContent = '🌙';
+                text.textContent = 'Dark Mode';
+            }
+        }
+
+        // Tab functionality
+        function showTab(tabId) {
+            const btn = event.currentTarget;
+            const container = btn.closest('.component-demo') || document;
+
+            // Remove active class from buttons in the same container
+            container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+            // Remove active class from content in the same container
+            container.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // Initialize theme based on system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            updateThemeButton('dark');
+        }
+
+        // Chart toolbar interaction
+        document.querySelectorAll('.chart-toolbar-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.chart-toolbar-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Legend toggle interaction
+        document.querySelectorAll('.legend-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const colorBox = this.querySelector('.legend-color');
+                const currentOpacity = colorBox.style.opacity || '1';
+                colorBox.style.opacity = currentOpacity === '1' ? '0.3' : '1';
+            });
+        });
+
+        // Copy code functionality
+        function copyCode(btn) {
+            const pre = btn.nextElementSibling;
+            const code = pre.querySelector('code').innerText;
+
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>
