@@ -9,17 +9,6 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
 ![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
 
-## ✨ Features
-
-- **DaisyUI-inspired design** with the violet color scheme
-- **Dark mode support** using CSS custom properties
-- **Extensive component library**: Steps, Toast, Tooltips, Avatars, and more
-- **Custom components**: Stats, Alerts, Chat bubbles, Cards, Badges, Charts
-- **Modern typography** using Tailwind's default font stack
-- **Responsive design** that works on all screen sizes
-- **No JavaScript required** - pure CSS enhancements
-- **Easy integration** with existing PicoCSS projects
-
 ## 📦 Installation
 
 ### Option 1: CDN (Recommended)
@@ -37,6 +26,17 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 ```html
 <link rel="stylesheet" href="css/pico-daisy.css">
 ```
+
+## ✨ Features
+
+- **DaisyUI-inspired design** with the violet color scheme
+- **Dark mode support** using CSS custom properties
+- **Extensive component library**: Steps, Toast, Tooltips, Avatars, and more
+- **Custom components**: Stats, Alerts, Chat bubbles, Cards, Badges, Charts
+- **Modern typography** using Tailwind's default font stack
+- **Responsive design** that works on all screen sizes
+- **No JavaScript required** - pure CSS enhancements
+- **Easy integration** with existing PicoCSS projects
 
 ## 🎨 Themes
 
