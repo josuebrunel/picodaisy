@@ -103,6 +103,29 @@ The theme uses CSS custom properties for easy customization:
 </nav>
 ```
 
+### Menu / Side Navigation
+
+```html
+<ul class="daisy-menu">
+  <li>
+    <span class="daisy-menu-title">Main Menu</span>
+    <ul>
+      <li><a class="active">Dashboard</a></li>
+      <li><a>Profile</a></li>
+    </ul>
+  </li>
+  <li>
+    <details>
+      <summary>Settings</summary>
+      <ul>
+        <li><a>Account</a></li>
+        <li><a>Security</a></li>
+      </ul>
+    </details>
+  </li>
+</ul>
+```
+
 ### Hero Section
 
 Standard Hero:

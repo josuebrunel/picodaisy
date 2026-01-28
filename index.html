@@ -830,6 +830,82 @@
 <span class="tag">&lt;/div&gt;</span></code></pre>
         </section>
 
+        <!-- Menu / Side Nav Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Menu & Side Navigation</h2>
+                <p class="demo-subtitle">Vertical navigation lists.</p>
+            </div>
+
+            <div class="component-demo" style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; justify-content: center;">
+                <!-- Basic Menu -->
+                <ul class="daisy-menu">
+                    <li>
+                        <span class="daisy-menu-title">Main Menu</span>
+                        <ul>
+                            <li><a class="active">Dashboard</a></li>
+                            <li><a>Profile</a></li>
+                            <li><a>Settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Menu with Icons & Nested -->
+                <ul class="daisy-menu">
+                    <li>
+                        <a class="active">
+                            <span>🏠</span>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span>📂</span>
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>
+                                <span>⚙️</span>
+                                Settings
+                            </summary>
+                            <ul>
+                                <li><a>Account</a></li>
+                                <li><a>Security</a></li>
+                                <li><a>Billing</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <a>
+                            <span>📊</span>
+                            Analytics
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <pre><code><span class="comment">&lt;!-- Menu Component --&gt;</span>
+<span class="tag">&lt;ul</span> <span class="attr">class</span>=<span class="val">"daisy-menu"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"daisy-menu-title"</span><span class="tag">&gt;</span>Main Menu<span class="tag">&lt;/span&gt;</span>
+    <span class="tag">&lt;ul&gt;</span>
+      <span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">class</span>=<span class="val">"active"</span><span class="tag">&gt;</span>Dashboard<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="tag">&lt;li&gt;&lt;a&gt;</span>Profile<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;/ul&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>
+    <span class="tag">&lt;details&gt;</span>
+      <span class="tag">&lt;summary&gt;</span>Settings<span class="tag">&lt;/summary&gt;</span>
+      <span class="tag">&lt;ul&gt;</span>
+        <span class="tag">&lt;li&gt;&lt;a&gt;</span>Account<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="tag">&lt;/ul&gt;</span>
+    <span class="tag">&lt;/details&gt;</span>
+  <span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></code></pre>
+        </section>
+
         <!-- Steps Demo -->
         <section class="demo-section">
             <div class="demo-header">
