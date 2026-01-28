@@ -216,10 +216,32 @@
 
         .tab-content {
             display: none;
+            position: relative;
         }
 
         .tab-content.active {
             display: block;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 2rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #d4d4d4;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
         /* Footer */
@@ -291,6 +313,7 @@
                 </div>
 
                 <div id="install-default" class="tab-content active">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     <pre><code><span class="comment">&lt;!-- Default Theme (Violet) --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.css"</span><span class="tag">&gt;</span>
 
@@ -299,6 +322,7 @@
                 </div>
 
                 <div id="install-blue" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     <pre><code><span class="comment">&lt;!-- Blue Theme --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.blue.css"</span><span class="tag">&gt;</span>
 
@@ -307,6 +331,7 @@
                 </div>
 
                 <div id="install-red" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     <pre><code><span class="comment">&lt;!-- Red Theme --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.red.css"</span><span class="tag">&gt;</span>
 
@@ -315,6 +340,7 @@
                 </div>
 
                 <div id="install-green" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     <pre><code><span class="comment">&lt;!-- Green Theme --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.green.css"</span><span class="tag">&gt;</span>
 
@@ -323,6 +349,7 @@
                 </div>
 
                 <div id="install-teal" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     <pre><code><span class="comment">&lt;!-- Teal Theme --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.teal.css"</span><span class="tag">&gt;</span>
 
@@ -331,6 +358,7 @@
                 </div>
 
                 <div id="install-light-grey" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     <pre><code><span class="comment">&lt;!-- Light Grey Theme --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.light-grey.css"</span><span class="tag">&gt;</span>
 
@@ -339,6 +367,7 @@
                 </div>
 
                 <div id="install-dark-grey" class="tab-content">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                     <pre><code><span class="comment">&lt;!-- Dark Grey Theme --&gt;</span>
 <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.dark-grey.css"</span><span class="tag">&gt;</span>
 
@@ -1131,6 +1160,22 @@
                 colorBox.style.opacity = currentOpacity === '1' ? '0.3' : '1';
             });
         });
+
+        // Copy code functionality
+        function copyCode(btn) {
+            const pre = btn.nextElementSibling;
+            const code = pre.querySelector('code').innerText;
+
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
     </script>
 </body>
 
