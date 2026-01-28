@@ -8,7 +8,7 @@
 @import url('https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css');
 
 /* --- 1. GLOBAL THEME OVERRIDES (DaisyUI Violet) --- */
-:root {
+:root:not([data-theme="dark"]) {
     /* Primary Color (DaisyUI Violet) */
     --pico-primary: #570df8;
     --pico-primary-background: #570df8;
