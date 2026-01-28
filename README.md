@@ -9,7 +9,7 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
 ![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
 
-## 📦 Installation
+## Installation
 
 ### Option 1: CDN (Recommended)
 ```html
@@ -27,7 +27,7 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 <link rel="stylesheet" href="css/pico-daisy.css">
 ```
 
-## ✨ Features
+## Features
 
 - **DaisyUI-inspired design** with the violet color scheme
 - **Dark mode support** using CSS custom properties
@@ -38,7 +38,7 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 - **No JavaScript required** - pure CSS enhancements
 - **Easy integration** with existing PicoCSS projects
 
-## 🎨 Themes
+## Themes
 
 Pico-Daisy UI comes with 7 color variants:
 
@@ -54,22 +54,22 @@ To use a variant, simply include the corresponding CSS file:
 
 ```html
 <!-- Blue Theme -->
-<link rel="stylesheet" href="pico-daisy.blue.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.blue.css">
 
 <!-- Red Theme -->
-<link rel="stylesheet" href="pico-daisy.red.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.red.css">
 
 <!-- Green Theme -->
-<link rel="stylesheet" href="pico-daisy.green.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.green.css">
 
 <!-- Teal Theme -->
-<link rel="stylesheet" href="pico-daisy.teal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.teal.css">
 
 <!-- Light Grey Theme -->
-<link rel="stylesheet" href="pico-daisy.light-grey.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.light-grey.css">
 
 <!-- Dark Grey Theme -->
-<link rel="stylesheet" href="pico-daisy.dark-grey.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.dark-grey.css">
 ```
 
 ## Custom Properties
