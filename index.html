@@ -242,6 +242,46 @@
             </div>
         </section>
 
+        <!-- Installation Section -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Installation</h2>
+                <p class="demo-subtitle">Get started with Pico-Daisy UI in seconds.</p>
+            </div>
+
+            <div class="component-demo">
+                <p>Simply download the CSS file and link it in your HTML <code>&lt;head&gt;</code>.</p>
+                <div class="tab-container">
+                    <button class="tab-btn active" onclick="showTab('install-default')">Default (Violet)</button>
+                    <button class="tab-btn" onclick="showTab('install-blue')">Blue</button>
+                    <button class="tab-btn" onclick="showTab('install-green')">Green</button>
+                    <button class="tab-btn" onclick="showTab('install-orange')">Orange</button>
+                </div>
+
+                <div id="install-default" class="tab-content active">
+                    <pre><code><span class="comment">&lt;!-- Default Theme (Violet) --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="install-blue" class="tab-content">
+                    <pre><code><span class="comment">&lt;!-- Blue Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.blue.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="install-green" class="tab-content">
+                    <pre><code><span class="comment">&lt;!-- Green Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.green.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <div id="install-orange" class="tab-content">
+                    <pre><code><span class="comment">&lt;!-- Orange Theme --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"pico-daisy.orange.css"</span><span class="tag">&gt;</span></code></pre>
+                </div>
+
+                <p><small>Note: Each file includes PicoCSS v2 automatically via <code>@import</code>.</small></p>
+            </div>
+        </section>
+
         <!-- Hero Variants Demo -->
         <section class="demo-section">
             <div class="demo-header">
@@ -973,11 +1013,17 @@
 
         // Tab functionality
         function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(tab => tab.classList.remove('active'));
+            const btn = event.currentTarget;
+            const container = btn.closest('.component-demo') || document;
+
+            // Remove active class from buttons in the same container
+            container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+            // Remove active class from content in the same container
+            container.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
 
             document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            btn.classList.add('active');
         }
 
         // Initialize theme based on system preference
