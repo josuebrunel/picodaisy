@@ -40,12 +40,15 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 
 ## 🎨 Themes
 
-Pico-Daisy UI comes with 4 color variants:
+Pico-Daisy UI comes with 7 color variants:
 
 - **Default (Violet)**: The classic DaisyUI look.
 - **Blue**: A professional blue theme.
+- **Red**: A bold and energetic theme.
 - **Green**: A fresh nature-inspired theme.
-- **Orange**: A vibrant, energetic theme.
+- **Teal**: A clean, calming theme.
+- **Light Grey**: A minimal, monochrome theme.
+- **Dark Grey**: A sleek, dark monochrome theme.
 
 To use a variant, simply include the corresponding CSS file:
 
@@ -53,11 +56,20 @@ To use a variant, simply include the corresponding CSS file:
 <!-- Blue Theme -->
 <link rel="stylesheet" href="pico-daisy.blue.css">
 
+<!-- Red Theme -->
+<link rel="stylesheet" href="pico-daisy.red.css">
+
 <!-- Green Theme -->
 <link rel="stylesheet" href="pico-daisy.green.css">
 
-<!-- Orange Theme -->
-<link rel="stylesheet" href="pico-daisy.orange.css">
+<!-- Teal Theme -->
+<link rel="stylesheet" href="pico-daisy.teal.css">
+
+<!-- Light Grey Theme -->
+<link rel="stylesheet" href="pico-daisy.light-grey.css">
+
+<!-- Dark Grey Theme -->
+<link rel="stylesheet" href="pico-daisy.dark-grey.css">
 ```
 
 ## Custom Properties
