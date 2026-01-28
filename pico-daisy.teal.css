@@ -1081,18 +1081,18 @@ input[type="checkbox"][role="switch"]:checked::after {
 /* Splash Background Variant */
 .daisy-hero.daisy-hero-splash {
     background-image:
-        radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(8, 145, 178, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(13, 148, 136, 0.15) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, color-mix(in srgb, var(--pico-primary) 15%, transparent) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, color-mix(in srgb, var(--pico-primary) 15%, transparent) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, color-mix(in srgb, var(--pico-primary) 15%, transparent) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, color-mix(in srgb, var(--pico-primary) 15%, transparent) 0px, transparent 50%);
     background-color: var(--pico-background-color);
     background-size: 100% 100%;
 }
 
 [data-theme="dark"] .daisy-hero.daisy-hero-splash {
     background-image:
-        radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.3) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(8, 145, 178, 0.3) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.3) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(13, 148, 136, 0.3) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, color-mix(in srgb, var(--pico-primary) 30%, transparent) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, color-mix(in srgb, var(--pico-primary) 30%, transparent) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, color-mix(in srgb, var(--pico-primary) 30%, transparent) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, color-mix(in srgb, var(--pico-primary) 30%, transparent) 0px, transparent 50%);
 }
