@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - CloudFlow</title>
-    <link rel="stylesheet" href="../pico-daisy.modern.css">
+    <link rel="stylesheet" href="../pico-daisy.css">
     <style>
         body {
             display: flex;
@@ -54,21 +54,21 @@
             align-items: center;
             gap: 0.75rem;
             padding: 0.75rem 1rem;
-            border-radius: var(--modern-radius-md);
+            border-radius: var(--daisy-radius-md);
             color: var(--pico-muted-color);
             text-decoration: none;
             font-weight: 500;
-            transition: all var(--modern-transition-fast);
+            transition: all var(--daisy-transition-fast);
         }
 
         .sidebar-nav a:hover {
-            background: var(--modern-gray-100);
+            background: var(--daisy-gray-100);
             color: var(--pico-color);
         }
 
         .sidebar-nav a.active {
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
-            color: var(--modern-primary);
+            color: var(--daisy-primary);
         }
 
         .sidebar-section {
@@ -90,7 +90,7 @@
             align-items: center;
             gap: 0.75rem;
             padding: 0.75rem;
-            border-radius: var(--modern-radius-md);
+            border-radius: var(--daisy-radius-md);
         }
 
         .user-avatar {
@@ -124,7 +124,7 @@
         }
 
         .topbar {
-            background: var(--modern-glass-bg);
+            background: var(--daisy-glass-bg);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--pico-muted-border-color);
             padding: 1rem 2rem;
@@ -153,7 +153,7 @@
             gap: 0.5rem;
             background: var(--pico-card-background-color);
             border: 1px solid var(--pico-muted-border-color);
-            border-radius: var(--modern-radius-full);
+            border-radius: var(--daisy-radius-full);
             padding: 0.5rem 1rem;
             min-width: 240px;
         }
@@ -172,12 +172,12 @@
             padding: 0.5rem;
             color: var(--pico-muted-color);
             cursor: pointer;
-            border-radius: var(--modern-radius-md);
+            border-radius: var(--daisy-radius-md);
             box-shadow: none;
         }
 
         .icon-btn:hover {
-            background: var(--modern-gray-100);
+            background: var(--daisy-gray-100);
             color: var(--pico-color);
             transform: none;
         }
@@ -197,13 +197,13 @@
         .metric-card {
             background: var(--pico-card-background-color);
             border: 1px solid var(--pico-muted-border-color);
-            border-radius: var(--modern-radius-lg);
+            border-radius: var(--daisy-radius-lg);
             padding: 1.5rem;
-            transition: all var(--modern-transition-base);
+            transition: all var(--daisy-transition-base);
         }
 
         .metric-card:hover {
-            box-shadow: var(--modern-shadow-lg);
+            box-shadow: var(--daisy-shadow-lg);
             transform: translateY(-2px);
         }
 
@@ -217,7 +217,7 @@
         .metric-icon {
             width: 2.5rem;
             height: 2.5rem;
-            border-radius: var(--modern-radius-md);
+            border-radius: var(--daisy-radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -260,7 +260,7 @@
             font-size: 0.75rem;
             font-weight: 600;
             padding: 0.25rem 0.5rem;
-            border-radius: var(--modern-radius-sm);
+            border-radius: var(--daisy-radius-sm);
         }
 
         .metric-change.up {
@@ -290,7 +290,7 @@
         .activity-card {
             background: var(--pico-card-background-color);
             border: 1px solid var(--pico-muted-border-color);
-            border-radius: var(--modern-radius-lg);
+            border-radius: var(--daisy-radius-lg);
             padding: 1.5rem;
         }
 
@@ -309,8 +309,8 @@
 
         .chart-placeholder {
             height: 280px;
-            background: linear-gradient(180deg, var(--modern-gray-50) 0%, transparent 100%);
-            border-radius: var(--modern-radius-md);
+            background: linear-gradient(180deg, var(--daisy-gray-50) 0%, transparent 100%);
+            border-radius: var(--daisy-radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -366,11 +366,11 @@
         }
 
         [data-theme="dark"] .sidebar-nav a:hover {
-            background: var(--modern-gray-800);
+            background: var(--daisy-gray-800);
         }
 
         [data-theme="dark"] .icon-btn:hover {
-            background: var(--modern-gray-700);
+            background: var(--daisy-gray-700);
         }
     </style>
 </head>
