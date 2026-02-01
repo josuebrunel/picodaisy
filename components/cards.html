@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards - Pico-Daisy Components</title>
+    <link rel="stylesheet" href="../pico-daisy.css">
+    <style>
+        .component-section {
+            margin-bottom: 4rem;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .code-block {
+            background: var(--modern-gray-100);
+            border-radius: var(--modern-radius-md);
+            padding: 1rem 1.25rem;
+            font-family: var(--modern-font-mono);
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1rem 0 2rem;
+        }
+
+        [data-theme="dark"] .code-block {
+            background: var(--modern-gray-800);
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--pico-muted-border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="daisy-nav">
+        <ul>
+            <li><a href="../index.html"><strong>☁️ Pico-Daisy</strong></a></li>
+        </ul>
+        <ul>
+            <li><a href="buttons.html">Buttons</a></li>
+            <li><a href="cards.html" class="active">Cards</a></li>
+            <li><a href="forms.html">Forms</a></li>
+            <li><a href="alerts.html">Alerts</a></li>
+            <li><a href="navigation.html">Navigation</a></li>
+        </ul>
+        <ul>
+            <li><a href="https://github.com/josuebrunel/picodaisy" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <hgroup style="margin: 3rem 0;">
+            <h1>Cards</h1>
+            <p>Versatile card components with hover effects, glassmorphism, and gradient borders.</p>
+        </hgroup>
+
+        <!-- Basic Cards -->
+        <section class="component-section">
+            <h2 class="section-title">Basic Cards (daisy-card)</h2>
+            <p>Standard card with lift effect on hover.</p>
+
+            <div class="demo-grid">
+                <article class="daisy-card">
+                    <header>Card Header</header>
+                    <p>This is a basic card with the daisy-card class. It has a subtle shadow and lifts on hover.</p>
+                    <footer><button>Action</button></footer>
+                </article>
+
+                <article class="daisy-card">
+                    <header>
+                        <span class="badge badge-primary">New</span>
+                        Feature Card
+                    </header>
+                    <p>Cards work great with badges and other components.</p>
+                </article>
+            </div>
+
+            <pre class="code-block">&lt;article class="daisy-card"&gt;
+    &lt;header&gt;Card Header&lt;/header&gt;
+    &lt;p&gt;Card content goes here...&lt;/p&gt;
+    &lt;footer&gt;&lt;button&gt;Action&lt;/button&gt;&lt;/footer&gt;
+&lt;/article&gt;</pre>
+        </section>
+
+        <!-- Modern Cards -->
+        <section class="component-section">
+            <h2 class="section-title">Modern Cards</h2>
+            <p>Enhanced styling with modern-card class.</p>
+
+            <div class="demo-grid">
+                <article class="modern-card">
+                    <header>Modern Card</header>
+                    <p>Uses the modern-card class for enhanced shadows and transitions.</p>
+                </article>
+
+                <article class="modern-card modern-card-glow">
+                    <header>Glow Effect</header>
+                    <p>Add modern-card-glow for a purple glow on hover.</p>
+                </article>
+            </div>
+
+            <pre class="code-block">&lt;article class="modern-card"&gt;...&lt;/article&gt;
+&lt;article class="modern-card modern-card-glow"&gt;...&lt;/article&gt;</pre>
+        </section>
+
+        <!-- Glass Cards -->
+        <section class="component-section">
+            <h2 class="section-title">Glass Cards</h2>
+            <p>Frosted glass effect perfect for overlaying colorful backgrounds.</p>
+
+            <div style="background: var(--gradient-mesh); padding: 2rem; border-radius: var(--modern-radius-lg);">
+                <div class="demo-grid">
+                    <article class="modern-card-glass" style="padding: 1.5rem;">
+                        <h4>Glass Card</h4>
+                        <p>Beautiful frosted glass with backdrop blur effect.</p>
+                        <button class="btn-gradient">Learn More</button>
+                    </article>
+
+                    <article class="modern-card-glass" style="padding: 1.5rem;">
+                        <h4>Transparent Beauty</h4>
+                        <p>Works great on gradient or image backgrounds.</p>
+                    </article>
+                </div>
+            </div>
+
+            <pre class="code-block">&lt;article class="modern-card-glass"&gt;
+    &lt;h4&gt;Glass Card&lt;/h4&gt;
+    &lt;p&gt;Content...&lt;/p&gt;
+&lt;/article&gt;</pre>
+        </section>
+
+        <!-- Gradient Border Cards -->
+        <section class="component-section">
+            <h2 class="section-title">Gradient Border Cards</h2>
+            <p>Animated gradient border using CSS masks.</p>
+
+            <div class="demo-grid">
+                <article class="modern-card-gradient" style="padding: 1.5rem;">
+                    <h4>Gradient Border</h4>
+                    <p>A subtle gradient border that adds visual interest without being overwhelming.</p>
+                </article>
+            </div>
+
+            <pre class="code-block">&lt;article class="modern-card-gradient"&gt;...&lt;/article&gt;</pre>
+        </section>
+
+        <!-- Stats Cards -->
+        <section class="component-section">
+            <h2 class="section-title">Stats Cards</h2>
+            <p>Perfect for dashboards and metrics display.</p>
+
+            <div class="daisy-stats">
+                <div class="daisy-stat">
+                    <div class="daisy-stat-value">31K</div>
+                    <div class="daisy-stat-title">Downloads</div>
+                </div>
+                <div class="daisy-stat">
+                    <div class="daisy-stat-value">4.9</div>
+                    <div class="daisy-stat-title">Rating</div>
+                </div>
+                <div class="daisy-stat">
+                    <div class="daisy-stat-value">1.2K</div>
+                    <div class="daisy-stat-title">Stars</div>
+                </div>
+            </div>
+
+            <pre class="code-block">&lt;div class="daisy-stats"&gt;
+    &lt;div class="daisy-stat"&gt;
+        &lt;div class="daisy-stat-value"&gt;31K&lt;/div&gt;
+        &lt;div class="daisy-stat-title"&gt;Downloads&lt;/div&gt;
+    &lt;/div&gt;
+    ...
+&lt;/div&gt;</pre>
+        </section>
+    </main>
+
+    <footer class="container" style="text-align: center; padding: 3rem 0; color: var(--pico-muted-color);">
+        <p>Made with ❤️ using <a href="https://picocss.com" target="_blank">PicoCSS</a></p>
+    </footer>
+</body>
+
+</html>

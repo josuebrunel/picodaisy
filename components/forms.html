@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms - Pico-Daisy Components</title>
+    <link rel="stylesheet" href="../pico-daisy.css">
+    <style>
+        .component-section {
+            margin-bottom: 4rem;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .code-block {
+            background: var(--modern-gray-100);
+            border-radius: var(--modern-radius-md);
+            padding: 1rem 1.25rem;
+            font-family: var(--modern-font-mono);
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1rem 0 2rem;
+        }
+
+        [data-theme="dark"] .code-block {
+            background: var(--modern-gray-800);
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--pico-muted-border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="daisy-nav">
+        <ul>
+            <li><a href="../index.html"><strong>☁️ Pico-Daisy</strong></a></li>
+        </ul>
+        <ul>
+            <li><a href="buttons.html">Buttons</a></li>
+            <li><a href="cards.html">Cards</a></li>
+            <li><a href="forms.html" class="active">Forms</a></li>
+            <li><a href="alerts.html">Alerts</a></li>
+            <li><a href="navigation.html">Navigation</a></li>
+        </ul>
+        <ul>
+            <li><a href="https://github.com/josuebrunel/picodaisy" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <hgroup style="margin: 3rem 0;">
+            <h1>Forms</h1>
+            <p>Enhanced form elements with focus rings, floating labels, and toggle switches.</p>
+        </hgroup>
+
+        <!-- Basic Inputs -->
+        <section class="component-section">
+            <h2 class="section-title">Text Inputs</h2>
+            <p>Standard inputs with enhanced focus states and smooth transitions.</p>
+
+            <div class="demo-grid">
+                <div>
+                    <label for="text1">Default Input</label>
+                    <input type="text" id="text1" placeholder="Enter text...">
+                </div>
+                <div>
+                    <label for="email1">Email Input</label>
+                    <input type="email" id="email1" placeholder="you@example.com">
+                </div>
+            </div>
+
+            <pre class="code-block">&lt;label for="email"&gt;Email&lt;/label&gt;
+&lt;input type="email" id="email" placeholder="you@example.com"&gt;</pre>
+        </section>
+
+        <!-- Input with Icon -->
+        <section class="component-section">
+            <h2 class="section-title">Input with Icon</h2>
+            <p>Add icons inside inputs for better visual context.</p>
+
+            <div class="demo-grid">
+                <div class="input-with-icon">
+                    <input type="text" placeholder="Search...">
+                    <span class="input-icon">🔍</span>
+                </div>
+                <div class="input-with-icon">
+                    <input type="email" placeholder="Email address">
+                    <span class="input-icon">📧</span>
+                </div>
+            </div>
+
+            <pre class="code-block">&lt;div class="input-with-icon"&gt;
+    &lt;input type="text" placeholder="Search..."&gt;
+    &lt;span class="input-icon"&gt;🔍&lt;/span&gt;
+&lt;/div&gt;</pre>
+        </section>
+
+        <!-- Floating Labels -->
+        <section class="component-section">
+            <h2 class="section-title">Floating Labels</h2>
+            <p>Labels that float above the input on focus or when filled.</p>
+
+            <div class="demo-grid">
+                <div class="input-floating">
+                    <input type="text" id="float1" placeholder=" ">
+                    <label for="float1">Username</label>
+                </div>
+                <div class="input-floating">
+                    <input type="password" id="float2" placeholder=" ">
+                    <label for="float2">Password</label>
+                </div>
+            </div>
+
+            <pre class="code-block">&lt;div class="input-floating"&gt;
+    &lt;input type="text" id="username" placeholder=" "&gt;
+    &lt;label for="username"&gt;Username&lt;/label&gt;
+&lt;/div&gt;</pre>
+        </section>
+
+        <!-- Select -->
+        <section class="component-section">
+            <h2 class="section-title">Select Dropdown</h2>
+
+            <div class="demo-grid">
+                <div>
+                    <label for="select1">Choose an option</label>
+                    <select id="select1">
+                        <option value="">Select...</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Textarea -->
+        <section class="component-section">
+            <h2 class="section-title">Textarea</h2>
+
+            <div class="demo-grid">
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="Type your message..."></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkboxes & Radios -->
+        <section class="component-section">
+            <h2 class="section-title">Checkboxes & Radios</h2>
+
+            <div class="demo-grid">
+                <fieldset>
+                    <legend>Select options:</legend>
+                    <label>
+                        <input type="checkbox" name="opt1" checked>
+                        Option One
+                    </label>
+                    <label>
+                        <input type="checkbox" name="opt2">
+                        Option Two
+                    </label>
+                    <label>
+                        <input type="checkbox" name="opt3">
+                        Option Three
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Choose one:</legend>
+                    <label>
+                        <input type="radio" name="radio1" checked>
+                        Radio A
+                    </label>
+                    <label>
+                        <input type="radio" name="radio1">
+                        Radio B
+                    </label>
+                    <label>
+                        <input type="radio" name="radio1">
+                        Radio C
+                    </label>
+                </fieldset>
+            </div>
+        </section>
+
+        <!-- Toggle Switch -->
+        <section class="component-section">
+            <h2 class="section-title">Toggle Switch</h2>
+            <p>Premium toggle switch with smooth animation.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
+                <label style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Dark Mode</span>
+                    <input type="checkbox" role="switch">
+                </label>
+                <label style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Notifications</span>
+                    <input type="checkbox" role="switch" checked>
+                </label>
+                <label style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Auto-save</span>
+                    <input type="checkbox" role="switch" checked>
+                </label>
+            </div>
+
+            <pre class="code-block">&lt;label&gt;
+    &lt;span&gt;Dark Mode&lt;/span&gt;
+    &lt;input type="checkbox" role="switch"&gt;
+&lt;/label&gt;</pre>
+        </section>
+
+        <!-- Range Slider -->
+        <section class="component-section">
+            <h2 class="section-title">Range Slider</h2>
+
+            <div style="max-width: 400px;">
+                <label for="range1">Volume: <span id="rangeValue">50</span>%</label>
+                <input type="range" id="range1" min="0" max="100" value="50"
+                    oninput="document.getElementById('rangeValue').textContent = this.value">
+            </div>
+        </section>
+
+        <!-- Full Form Example -->
+        <section class="component-section">
+            <h2 class="section-title">Complete Form Example</h2>
+
+            <article class="daisy-card" style="max-width: 500px;">
+                <form>
+                    <div class="input-with-icon">
+                        <input type="text" placeholder="Full name" required>
+                        <span class="input-icon">👤</span>
+                    </div>
+
+                    <div class="input-with-icon">
+                        <input type="email" placeholder="Email address" required>
+                        <span class="input-icon">📧</span>
+                    </div>
+
+                    <label for="dept">Department</label>
+                    <select id="dept" required>
+                        <option value="">Select department...</option>
+                        <option>Engineering</option>
+                        <option>Design</option>
+                        <option>Marketing</option>
+                    </select>
+
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to the terms and conditions
+                    </label>
+
+                    <button type="submit" class="btn-gradient" style="width: 100%;">Submit</button>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <footer class="container" style="text-align: center; padding: 3rem 0; color: var(--pico-muted-color);">
+        <p>Made with ❤️ using <a href="https://picocss.com" target="_blank">PicoCSS</a></p>
+    </footer>
+</body>
+
+</html>

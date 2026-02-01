@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation - Pico-Daisy Components</title>
+    <link rel="stylesheet" href="../pico-daisy.css">
+    <style>
+        .component-section {
+            margin-bottom: 4rem;
+        }
+
+        .code-block {
+            background: var(--modern-gray-100);
+            border-radius: var(--modern-radius-md);
+            padding: 1rem 1.25rem;
+            font-family: var(--modern-font-mono);
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1rem 0 2rem;
+        }
+
+        [data-theme="dark"] .code-block {
+            background: var(--modern-gray-800);
+        }
+
+        .section-title {
+            border-bottom: 2px solid var(--pico-muted-border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-box {
+            background: var(--modern-gray-50);
+            border-radius: var(--modern-radius-lg);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        [data-theme="dark"] .demo-box {
+            background: var(--modern-gray-900);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="daisy-nav">
+        <ul>
+            <li><a href="../index.html"><strong>☁️ Pico-Daisy</strong></a></li>
+        </ul>
+        <ul>
+            <li><a href="buttons.html">Buttons</a></li>
+            <li><a href="cards.html">Cards</a></li>
+            <li><a href="forms.html">Forms</a></li>
+            <li><a href="alerts.html">Alerts</a></li>
+            <li><a href="navigation.html" class="active">Navigation</a></li>
+        </ul>
+        <ul>
+            <li><a href="https://github.com/josuebrunel/picodaisy" target="_blank">GitHub</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <hgroup style="margin: 3rem 0;">
+            <h1>Navigation</h1>
+            <p>Navbars, tabs, steps, avatars, chat bubbles, and more.</p>
+        </hgroup>
+
+        <!-- Navbar -->
+        <section class="component-section">
+            <h2 class="section-title">Navbar</h2>
+            <p>Sticky glass navbar with blur effect.</p>
+
+            <div class="demo-box" style="overflow: hidden;">
+                <nav class="daisy-nav" style="position: relative; top: 0;">
+                    <ul>
+                        <li><a href="#"><strong>🚀 Brand</strong></a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                    <ul>
+                        <li><button class="btn-gradient btn-sm">Get Started</button></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <pre class="code-block">&lt;nav class="daisy-nav"&gt;
+    &lt;ul&gt;&lt;li&gt;&lt;a href="#"&gt;&lt;strong&gt;🚀 Brand&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Features&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;&lt;li&gt;&lt;button&gt;Get Started&lt;/button&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;/nav&gt;</pre>
+        </section>
+
+        <!-- Tabs -->
+        <section class="component-section">
+            <h2 class="section-title">Tabs</h2>
+            <p>Organize content into tabbed sections.</p>
+
+            <h4>Line Tabs</h4>
+            <div class="modern-tabs">
+                <button class="modern-tab active">Overview</button>
+                <button class="modern-tab">Features</button>
+                <button class="modern-tab">Pricing</button>
+                <button class="modern-tab">Reviews</button>
+            </div>
+
+            <h4 style="margin-top: 2rem;">Pill Tabs</h4>
+            <div class="modern-tabs modern-tabs-pills">
+                <button class="modern-tab active">Day</button>
+                <button class="modern-tab">Week</button>
+                <button class="modern-tab">Month</button>
+                <button class="modern-tab">Year</button>
+            </div>
+
+            <pre class="code-block">&lt;!-- Line Tabs --&gt;
+&lt;div class="modern-tabs"&gt;
+    &lt;button class="modern-tab active"&gt;Overview&lt;/button&gt;
+    &lt;button class="modern-tab"&gt;Features&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Pill Tabs --&gt;
+&lt;div class="modern-tabs modern-tabs-pills"&gt;
+    &lt;button class="modern-tab active"&gt;Day&lt;/button&gt;
+    &lt;button class="modern-tab"&gt;Week&lt;/button&gt;
+&lt;/div&gt;</pre>
+        </section>
+
+        <!-- Steps -->
+        <section class="component-section">
+            <h2 class="section-title">Steps</h2>
+            <p>Show progress through a multi-step process.</p>
+
+            <div class="daisy-steps">
+                <div class="daisy-step daisy-step-primary">Register</div>
+                <div class="daisy-step daisy-step-primary">Choose Plan</div>
+                <div class="daisy-step">Payment</div>
+                <div class="daisy-step">Complete</div>
+            </div>
+
+            <pre class="code-block">&lt;div class="daisy-steps"&gt;
+    &lt;div class="daisy-step daisy-step-primary"&gt;Register&lt;/div&gt;
+    &lt;div class="daisy-step daisy-step-primary"&gt;Choose Plan&lt;/div&gt;
+    &lt;div class="daisy-step"&gt;Payment&lt;/div&gt;
+    &lt;div class="daisy-step"&gt;Complete&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </section>
+
+        <!-- Modern Steps -->
+        <section class="component-section">
+            <h2 class="section-title">Modern Steps</h2>
+
+            <div class="modern-steps">
+                <div class="modern-step modern-step-complete">
+                    <div class="modern-step-title">Account</div>
+                    <div class="modern-step-desc">Create account</div>
+                </div>
+                <div class="modern-step modern-step-active">
+                    <div class="modern-step-title">Details</div>
+                    <div class="modern-step-desc">Add info</div>
+                </div>
+                <div class="modern-step">
+                    <div class="modern-step-title">Confirm</div>
+                    <div class="modern-step-desc">Review</div>
+                </div>
+            </div>
+
+            <pre class="code-block">&lt;div class="modern-steps"&gt;
+    &lt;div class="modern-step modern-step-complete"&gt;
+        &lt;div class="modern-step-title"&gt;Account&lt;/div&gt;
+        &lt;div class="modern-step-desc"&gt;Create account&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="modern-step modern-step-active"&gt;...&lt;/div&gt;
+    &lt;div class="modern-step"&gt;...&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </section>
+
+        <!-- Chat Bubbles -->
+        <section class="component-section">
+            <h2 class="section-title">Chat Bubbles</h2>
+            <p>Message bubbles for chat interfaces.</p>
+
+            <div class="daisy-chat" style="max-width: 500px;">
+                <div class="chat-message chat-start">
+                    <div class="chat-bubble">Hey! How's it going?</div>
+                </div>
+                <div class="chat-message chat-end">
+                    <div class="chat-bubble">Pretty good! Just working on the new design 🎨</div>
+                </div>
+                <div class="chat-message chat-start">
+                    <div class="chat-bubble">That sounds exciting! Can't wait to see it.</div>
+                </div>
+            </div>
+
+            <pre class="code-block">&lt;div class="daisy-chat"&gt;
+    &lt;div class="chat-message chat-start"&gt;
+        &lt;div class="chat-bubble"&gt;Hey! How's it going?&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="chat-message chat-end"&gt;
+        &lt;div class="chat-bubble"&gt;Pretty good!&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </section>
+
+        <!-- Avatars -->
+        <section class="component-section">
+            <h2 class="section-title">Avatars</h2>
+            <p>User avatars with status indicators and groups.</p>
+
+            <h4>Sizes</h4>
+            <div style="display: flex; align-items: center; gap: 1rem; margin: 1rem 0;">
+                <div class="modern-avatar modern-avatar-xs">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=xs" alt="Avatar">
+                </div>
+                <div class="modern-avatar modern-avatar-sm">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=sm" alt="Avatar">
+                </div>
+                <div class="modern-avatar modern-avatar-md">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=md" alt="Avatar">
+                </div>
+                <div class="modern-avatar modern-avatar-lg">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=lg" alt="Avatar">
+                </div>
+                <div class="modern-avatar modern-avatar-xl">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=xl" alt="Avatar">
+                </div>
+            </div>
+
+            <h4 style="margin-top: 2rem;">With Status</h4>
+            <div style="display: flex; align-items: center; gap: 1rem; margin: 1rem 0;">
+                <div class="modern-avatar modern-avatar-online">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=online" alt="Avatar">
+                </div>
+                <div class="modern-avatar modern-avatar-offline">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=offline" alt="Avatar">
+                </div>
+            </div>
+
+            <h4 style="margin-top: 2rem;">Ring Border</h4>
+            <div class="modern-avatar modern-avatar-ring modern-avatar-lg">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=ring" alt="Avatar">
+            </div>
+
+            <h4 style="margin-top: 2rem;">Avatar Group</h4>
+            <div class="modern-avatar-group">
+                <div class="modern-avatar">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=g1" alt="Avatar">
+                </div>
+                <div class="modern-avatar">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=g2" alt="Avatar">
+                </div>
+                <div class="modern-avatar">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=g3" alt="Avatar">
+                </div>
+                <div class="modern-avatar">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=g4" alt="Avatar">
+                </div>
+            </div>
+
+            <pre class="code-block">&lt;div class="modern-avatar modern-avatar-online"&gt;
+    &lt;img src="avatar.jpg" alt="Avatar"&gt;
+&lt;/div&gt;
+
+&lt;div class="modern-avatar-group"&gt;
+    &lt;div class="modern-avatar"&gt;&lt;img src="..." alt=""&gt;&lt;/div&gt;
+    &lt;div class="modern-avatar"&gt;&lt;img src="..." alt=""&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+        </section>
+
+        <!-- Accordion -->
+        <section class="component-section">
+            <h2 class="section-title">Accordion</h2>
+            <p>Collapsible content sections.</p>
+
+            <div class="modern-accordion" style="max-width: 600px;">
+                <div class="modern-accordion-item open">
+                    <button class="modern-accordion-header">
+                        <span>What is Pico-Daisy?</span>
+                        <span class="modern-accordion-icon">▼</span>
+                    </button>
+                    <div class="modern-accordion-content">
+                        <div class="modern-accordion-body">
+                            Pico-Daisy is a premium CSS theme for PicoCSS v2 that adds DaisyUI-style components with
+                            modern aesthetics including glassmorphism, gradients, and smooth animations.
+                        </div>
+                    </div>
+                </div>
+                <div class="modern-accordion-item">
+                    <button class="modern-accordion-header">
+                        <span>Do I need JavaScript?</span>
+                        <span class="modern-accordion-icon">▼</span>
+                    </button>
+                    <div class="modern-accordion-content">
+                        <div class="modern-accordion-body">
+                            Most components work with pure CSS. Some interactive features like accordion toggling
+                            require minimal JavaScript.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <pre class="code-block">&lt;div class="modern-accordion"&gt;
+    &lt;div class="modern-accordion-item open"&gt;
+        &lt;button class="modern-accordion-header"&gt;
+            &lt;span&gt;Question?&lt;/span&gt;
+            &lt;span class="modern-accordion-icon"&gt;▼&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="modern-accordion-content"&gt;
+            &lt;div class="modern-accordion-body"&gt;Answer...&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </section>
+
+        <!-- Dividers -->
+        <section class="component-section">
+            <h2 class="section-title">Dividers</h2>
+
+            <div class="modern-divider"></div>
+
+            <div class="modern-divider">OR</div>
+
+            <div class="daisy-divider">Continue with</div>
+
+            <pre class="code-block">&lt;div class="modern-divider"&gt;&lt;/div&gt;
+&lt;div class="modern-divider"&gt;OR&lt;/div&gt;
+&lt;div class="daisy-divider"&gt;Continue with&lt;/div&gt;</pre>
+        </section>
+
+        <!-- Tooltips -->
+        <section class="component-section">
+            <h2 class="section-title">Tooltips</h2>
+            <p>Hover to reveal additional information.</p>
+
+            <div style="display: flex; gap: 2rem; margin: 2rem 0;">
+                <button data-tooltip="This is a tooltip!">Hover me (top)</button>
+                <button data-tooltip="Bottom tooltip" data-tooltip-position="bottom">Hover me (bottom)</button>
+                <span data-tip="Using data-tip attribute" style="cursor: help; text-decoration: underline dotted;">Hover
+                    this text</span>
+            </div>
+
+            <pre class="code-block">&lt;button data-tooltip="Tooltip text"&gt;Hover me&lt;/button&gt;
+&lt;button data-tooltip="Bottom" data-tooltip-position="bottom"&gt;Bottom&lt;/button&gt;
+&lt;span data-tip="Using data-tip"&gt;Text&lt;/span&gt;</pre>
+        </section>
+    </main>
+
+    <footer class="container" style="text-align: center; padding: 3rem 0; color: var(--pico-muted-color);">
+        <p>Made with ❤️ using <a href="https://picocss.com" target="_blank">PicoCSS</a></p>
+    </footer>
+</body>
+
+</html>
