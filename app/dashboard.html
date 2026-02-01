@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CloudFlow</title>
+    <link rel="stylesheet" href="../pico-daisy.modern.css">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: var(--pico-card-background-color);
+            border-right: 1px solid var(--pico-muted-border-color);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--modern-radius-md);
+            color: var(--pico-muted-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--modern-transition-fast);
+        }
+
+        .sidebar-nav a:hover {
+            background: var(--modern-gray-100);
+            color: var(--pico-color);
+        }
+
+        .sidebar-nav a.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            color: var(--modern-primary);
+        }
+
+        .sidebar-section {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--pico-muted-color);
+            margin: 1.5rem 0 0.75rem 1rem;
+        }
+
+        .sidebar-footer {
+            padding-top: 1rem;
+            border-top: 1px solid var(--pico-muted-border-color);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: var(--modern-radius-md);
+        }
+
+        .user-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-email {
+            font-size: 0.75rem;
+            color: var(--pico-muted-color);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            background: var(--pico-background-color);
+            min-height: 100vh;
+        }
+
+        .topbar {
+            background: var(--modern-glass-bg);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--pico-muted-border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .topbar-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--pico-card-background-color);
+            border: 1px solid var(--pico-muted-border-color);
+            border-radius: var(--modern-radius-full);
+            padding: 0.5rem 1rem;
+            min-width: 240px;
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            flex: 1;
+            font-size: 0.875rem;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            color: var(--pico-muted-color);
+            cursor: pointer;
+            border-radius: var(--modern-radius-md);
+            box-shadow: none;
+        }
+
+        .icon-btn:hover {
+            background: var(--modern-gray-100);
+            color: var(--pico-color);
+            transform: none;
+        }
+
+        .dashboard-content {
+            padding: 2rem;
+        }
+
+        /* Metric Cards */
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: var(--pico-card-background-color);
+            border: 1px solid var(--pico-muted-border-color);
+            border-radius: var(--modern-radius-lg);
+            padding: 1.5rem;
+            transition: all var(--modern-transition-base);
+        }
+
+        .metric-card:hover {
+            box-shadow: var(--modern-shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .metric-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: var(--modern-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .metric-icon.blue {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        .metric-icon.green {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .metric-icon.purple {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+        }
+
+        .metric-icon.orange {
+            background: rgba(249, 115, 22, 0.1);
+            color: #f97316;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--pico-muted-color);
+        }
+
+        .metric-change {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--modern-radius-sm);
+        }
+
+        .metric-change.up {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+        }
+
+        .metric-change.down {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        /* Chart & Activity */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chart-card,
+        .activity-card {
+            background: var(--pico-card-background-color);
+            border: 1px solid var(--pico-muted-border-color);
+            border-radius: var(--modern-radius-lg);
+            padding: 1.5rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .chart-placeholder {
+            height: 280px;
+            background: linear-gradient(180deg, var(--modern-gray-50) 0%, transparent 100%);
+            border-radius: var(--modern-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pico-muted-color);
+            border: 1px dashed var(--pico-muted-border-color);
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--pico-muted-border-color);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        .activity-dot.blue {
+            background: #3b82f6;
+        }
+
+        .activity-dot.green {
+            background: #22c55e;
+        }
+
+        .activity-dot.purple {
+            background: #8b5cf6;
+        }
+
+        .activity-text {
+            font-size: 0.875rem;
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--pico-muted-color);
+            margin-top: 0.25rem;
+        }
+
+        [data-theme="dark"] .sidebar-nav a:hover {
+            background: var(--modern-gray-800);
+        }
+
+        [data-theme="dark"] .icon-btn:hover {
+            background: var(--modern-gray-700);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">☁️ CloudFlow</div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" class="active">📊 Dashboard</a></li>
+                <li><a href="#">📁 Projects</a></li>
+                <li><a href="#">👥 Team</a></li>
+                <li><a href="#">📈 Analytics</a></li>
+            </ul>
+            <div class="sidebar-section">Workspace</div>
+            <ul>
+                <li><a href="#">⚙️ Settings</a></li>
+                <li><a href="#">🔗 Integrations</a></li>
+                <li><a href="#">💳 Billing</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">JD</div>
+                <div>
+                    <div class="user-name">John Doe</div>
+                    <div class="user-email">john@example.com</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="topbar">
+            <h1 class="topbar-title">Dashboard</h1>
+            <div class="topbar-actions">
+                <div class="search-box">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <button class="icon-btn" title="Notifications">🔔</button>
+                <button class="icon-btn" title="Help">❓</button>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <!-- Metric Cards -->
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon blue">💰</div>
+                        <span class="metric-change up">↑ 12.5%</span>
+                    </div>
+                    <div class="metric-value">$48,560</div>
+                    <div class="metric-label">Total Revenue</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon green">👤</div>
+                        <span class="metric-change up">↑ 8.2%</span>
+                    </div>
+                    <div class="metric-value">2,845</div>
+                    <div class="metric-label">Active Users</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon purple">📦</div>
+                        <span class="metric-change down">↓ 3.1%</span>
+                    </div>
+                    <div class="metric-value">1,247</div>
+                    <div class="metric-label">Orders</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon orange">⭐</div>
+                        <span class="metric-change up">↑ 4.7%</span>
+                    </div>
+                    <div class="metric-value">4.8</div>
+                    <div class="metric-label">Avg. Rating</div>
+                </div>
+            </div>
+
+            <!-- Chart & Activity -->
+            <div class="dashboard-grid">
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Revenue Overview</h2>
+                        <div class="daisy-chart-toolbar">
+                            <button class="chart-toolbar-btn active">7D</button>
+                            <button class="chart-toolbar-btn">1M</button>
+                            <button class="chart-toolbar-btn">3M</button>
+                            <button class="chart-toolbar-btn">1Y</button>
+                        </div>
+                    </div>
+                    <div class="chart-placeholder">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                            <p>Chart visualization area</p>
+                            <small>Integrate with Chart.js, ApexCharts, etc.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Recent Activity</h2>
+                        <a href="#" style="font-size: 0.875rem;">View all</a>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-dot green"></span>
+                            <div>
+                                <div class="activity-text"><strong>Sarah</strong> completed project setup</div>
+                                <div class="activity-time">2 minutes ago</div>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-dot blue"></span>
+                            <div>
+                                <div class="activity-text"><strong>Mike</strong> pushed 3 commits</div>
+                                <div class="activity-time">15 minutes ago</div>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-dot purple"></span>
+                            <div>
+                                <div class="activity-text">New team member <strong>Lisa</strong> joined</div>
+                                <div class="activity-time">1 hour ago</div>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-dot green"></span>
+                            <div>
+                                <div class="activity-text">Payment received from <strong>Acme Inc</strong></div>
+                                <div class="activity-time">3 hours ago</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
