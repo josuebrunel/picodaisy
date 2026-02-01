@@ -7,269 +7,279 @@
     <title>Forms - Pico-Daisy Components</title>
     <link rel="stylesheet" href="../pico-daisy.css">
     <style>
-        .component-section {
-            margin-bottom: 4rem;
+        body {
+            background: var(--gradient-mesh), var(--daisy-gray-50);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            margin-bottom: 0.5rem;
+        }
+
+        .section-desc {
+            color: var(--pico-muted-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--daisy-radius-lg);
+            margin-bottom: 1rem;
         }
 
         .demo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 1.5rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
         }
 
-        .code-block {
-            background: var(--daisy-gray-100);
-            border-radius: var(--daisy-radius-md);
-            padding: 1rem 1.25rem;
-            font-family: var(--daisy-font-mono);
-            font-size: 0.875rem;
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
             overflow-x: auto;
-            margin: 1rem 0 2rem;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin: 0 0 1.5rem;
         }
 
-        [data-theme="dark"] .code-block {
-            background: var(--daisy-gray-800);
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
         }
 
-        .section-title {
-            border-bottom: 2px solid var(--pico-muted-border-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+        .tag {
+            color: #f472b6;
+        }
+
+        .attr {
+            color: #a5b4fc;
+        }
+
+        .val {
+            color: #86efac;
         }
     </style>
 </head>
 
 <body>
+    <!-- Navigation -->
     <nav class="daisy-nav">
-        <ul>
-            <li><a href="../index.html"><strong>☁️ Pico-Daisy</strong></a></li>
-        </ul>
+        <a href="../index.html"><strong>🌼 Pico-Daisy</strong></a>
         <ul>
             <li><a href="buttons.html">Buttons</a></li>
             <li><a href="cards.html">Cards</a></li>
-            <li><a href="forms.html" class="active">Forms</a></li>
+            <li><a href="forms.html"><strong>Forms</strong></a></li>
             <li><a href="alerts.html">Alerts</a></li>
             <li><a href="navigation.html">Navigation</a></li>
         </ul>
-        <ul>
-            <li><a href="https://github.com/josuebrunel/picodaisy" target="_blank">GitHub</a></li>
-        </ul>
+        <a href="https://github.com/josuebrunel/picodaisy" target="_blank">GitHub</a>
     </nav>
 
-    <main class="container">
-        <hgroup style="margin: 3rem 0;">
-            <h1>Forms</h1>
-            <p>Enhanced form elements with focus rings, floating labels, and toggle switches.</p>
-        </hgroup>
+    <div class="container">
+        <h1>Forms</h1>
+        <p class="section-desc">Form elements styled beautifully by default - no classes needed for basic inputs!</p>
 
         <!-- Basic Inputs -->
-        <section class="component-section">
-            <h2 class="section-title">Text Inputs</h2>
-            <p>Standard inputs with enhanced focus states and smooth transitions.</p>
+        <div class="section">
+            <h2 class="section-title">Basic Inputs (Classless)</h2>
+            <p class="section-desc">Standard form elements are automatically styled with focus effects.</p>
 
-            <div class="demo-grid">
-                <div>
-                    <label for="text1">Default Input</label>
-                    <input type="text" id="text1" placeholder="Enter text...">
-                </div>
-                <div>
-                    <label for="email1">Email Input</label>
-                    <input type="email" id="email1" placeholder="you@example.com">
-                </div>
-            </div>
-
-            <pre class="code-block">&lt;label for="email"&gt;Email&lt;/label&gt;
-&lt;input type="email" id="email" placeholder="you@example.com"&gt;</pre>
-        </section>
-
-        <!-- Input with Icon -->
-        <section class="component-section">
-            <h2 class="section-title">Input with Icon</h2>
-            <p>Add icons inside inputs for better visual context.</p>
-
-            <div class="demo-grid">
-                <div class="input-with-icon">
-                    <input type="text" placeholder="Search...">
-                    <span class="input-icon">🔍</span>
-                </div>
-                <div class="input-with-icon">
-                    <input type="email" placeholder="Email address">
-                    <span class="input-icon">📧</span>
+            <div class="demo-box">
+                <div class="demo-grid">
+                    <div>
+                        <label for="text-input">Text Input</label>
+                        <input type="text" id="text-input" placeholder="Enter text...">
+                    </div>
+                    <div>
+                        <label for="email-input">Email Input</label>
+                        <input type="email" id="email-input" placeholder="you@example.com">
+                    </div>
                 </div>
             </div>
 
-            <pre class="code-block">&lt;div class="input-with-icon"&gt;
-    &lt;input type="text" placeholder="Search..."&gt;
-    &lt;span class="input-icon"&gt;🔍&lt;/span&gt;
-&lt;/div&gt;</pre>
-        </section>
+            <pre><code><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"email"</span><span class="tag">&gt;</span>Email<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">id</span>=<span class="val">"email"</span> <span class="attr">placeholder</span>=<span class="val">"you@example.com"</span><span class="tag">&gt;</span></code></pre>
+        </div>
 
-        <!-- Floating Labels -->
-        <section class="component-section">
-            <h2 class="section-title">Floating Labels</h2>
-            <p>Labels that float above the input on focus or when filled.</p>
+        <!-- Toggle Switches -->
+        <div class="section">
+            <h2 class="section-title">Toggle Switches</h2>
+            <p class="section-desc">Add <code>role="switch"</code> to any checkbox for a beautiful toggle.</p>
 
-            <div class="demo-grid">
-                <div class="input-floating">
-                    <input type="text" id="float1" placeholder=" ">
-                    <label for="float1">Username</label>
-                </div>
-                <div class="input-floating">
-                    <input type="password" id="float2" placeholder=" ">
-                    <label for="float2">Password</label>
-                </div>
+            <div class="demo-box">
+                <label style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <input type="checkbox" role="switch">
+                    <span>Dark Mode</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                    <input type="checkbox" role="switch" checked>
+                    <span>Notifications</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                    <input type="checkbox" role="switch" checked>
+                    <span>Auto-save</span>
+                </label>
             </div>
 
-            <pre class="code-block">&lt;div class="input-floating"&gt;
-    &lt;input type="text" id="username" placeholder=" "&gt;
-    &lt;label for="username"&gt;Username&lt;/label&gt;
-&lt;/div&gt;</pre>
-        </section>
-
-        <!-- Select -->
-        <section class="component-section">
-            <h2 class="section-title">Select Dropdown</h2>
-
-            <div class="demo-grid">
-                <div>
-                    <label for="select1">Choose an option</label>
-                    <select id="select1">
-                        <option value="">Select...</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                </div>
-            </div>
-        </section>
+            <pre><code><span class="tag">&lt;label&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"checkbox"</span> <span class="attr">role</span>=<span class="val">"switch"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Dark Mode<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;/label&gt;</span></code></pre>
+        </div>
 
         <!-- Textarea -->
-        <section class="component-section">
-            <h2 class="section-title">Textarea</h2>
+        <div class="section">
+            <h2 class="section-title">Textarea (Classless)</h2>
+            <p class="section-desc">Textareas are styled automatically.</p>
 
-            <div class="demo-grid">
-                <div>
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="4" placeholder="Type your message..."></textarea>
-                </div>
+            <div class="demo-box">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Type your message..."></textarea>
             </div>
-        </section>
+
+            <pre><code><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"message"</span><span class="tag">&gt;</span>Message<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;textarea</span> <span class="attr">id</span>=<span class="val">"message"</span> <span class="attr">placeholder</span>=<span class="val">"Type here..."</span><span class="tag">&gt;&lt;/textarea&gt;</span></code></pre>
+        </div>
 
         <!-- Checkboxes & Radios -->
-        <section class="component-section">
-            <h2 class="section-title">Checkboxes & Radios</h2>
+        <div class="section">
+            <h2 class="section-title">Checkboxes & Radios (Classless)</h2>
+            <p class="section-desc">Native checkboxes and radios styled automatically.</p>
 
-            <div class="demo-grid">
-                <fieldset>
-                    <legend>Select options:</legend>
-                    <label>
-                        <input type="checkbox" name="opt1" checked>
-                        Option One
-                    </label>
-                    <label>
-                        <input type="checkbox" name="opt2">
-                        Option Two
-                    </label>
-                    <label>
-                        <input type="checkbox" name="opt3">
-                        Option Three
-                    </label>
-                </fieldset>
+            <div class="demo-box">
+                <div class="demo-grid">
+                    <fieldset>
+                        <legend>Select options:</legend>
+                        <label>
+                            <input type="checkbox" checked> Option One
+                        </label>
+                        <label>
+                            <input type="checkbox"> Option Two
+                        </label>
+                        <label>
+                            <input type="checkbox"> Option Three
+                        </label>
+                    </fieldset>
 
-                <fieldset>
-                    <legend>Choose one:</legend>
-                    <label>
-                        <input type="radio" name="radio1" checked>
-                        Radio A
-                    </label>
-                    <label>
-                        <input type="radio" name="radio1">
-                        Radio B
-                    </label>
-                    <label>
-                        <input type="radio" name="radio1">
-                        Radio C
-                    </label>
-                </fieldset>
-            </div>
-        </section>
-
-        <!-- Toggle Switch -->
-        <section class="component-section">
-            <h2 class="section-title">Toggle Switch</h2>
-            <p>Premium toggle switch with smooth animation.</p>
-
-            <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
-                <label style="display: flex; justify-content: space-between; align-items: center;">
-                    <span>Dark Mode</span>
-                    <input type="checkbox" role="switch">
-                </label>
-                <label style="display: flex; justify-content: space-between; align-items: center;">
-                    <span>Notifications</span>
-                    <input type="checkbox" role="switch" checked>
-                </label>
-                <label style="display: flex; justify-content: space-between; align-items: center;">
-                    <span>Auto-save</span>
-                    <input type="checkbox" role="switch" checked>
-                </label>
+                    <fieldset>
+                        <legend>Choose one:</legend>
+                        <label>
+                            <input type="radio" name="radio-demo" checked> Radio A
+                        </label>
+                        <label>
+                            <input type="radio" name="radio-demo"> Radio B
+                        </label>
+                        <label>
+                            <input type="radio" name="radio-demo"> Radio C
+                        </label>
+                    </fieldset>
+                </div>
             </div>
 
-            <pre class="code-block">&lt;label&gt;
-    &lt;span&gt;Dark Mode&lt;/span&gt;
-    &lt;input type="checkbox" role="switch"&gt;
-&lt;/label&gt;</pre>
-        </section>
+            <pre><code><span class="tag">&lt;label&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"checkbox"</span> <span class="attr">checked</span><span class="tag">&gt;</span> Option
+<span class="tag">&lt;/label&gt;</span>
 
-        <!-- Range Slider -->
-        <section class="component-section">
-            <h2 class="section-title">Range Slider</h2>
+<span class="tag">&lt;label&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"radio"</span> <span class="attr">name</span>=<span class="val">"group"</span><span class="tag">&gt;</span> Choice
+<span class="tag">&lt;/label&gt;</span></code></pre>
+        </div>
 
-            <div style="max-width: 400px;">
-                <label for="range1">Volume: <span id="rangeValue">50</span>%</label>
-                <input type="range" id="range1" min="0" max="100" value="50"
-                    oninput="document.getElementById('rangeValue').textContent = this.value">
-            </div>
-        </section>
+        <!-- Select -->
+        <div class="section">
+            <h2 class="section-title">Select Dropdown (Classless)</h2>
+            <p class="section-desc">Native select elements styled automatically.</p>
 
-        <!-- Full Form Example -->
-        <section class="component-section">
-            <h2 class="section-title">Complete Form Example</h2>
-
-            <article class="daisy-card" style="max-width: 500px;">
-                <form>
-                    <div class="input-with-icon">
-                        <input type="text" placeholder="Full name" required>
-                        <span class="input-icon">👤</span>
+            <div class="demo-box">
+                <div class="demo-grid">
+                    <div>
+                        <label for="select-demo">Choose an option</label>
+                        <select id="select-demo">
+                            <option value="">Select...</option>
+                            <option value="1">Option One</option>
+                            <option value="2">Option Two</option>
+                            <option value="3">Option Three</option>
+                        </select>
                     </div>
+                </div>
+            </div>
 
+            <pre><code><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"select"</span><span class="tag">&gt;</span>Choose<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;select</span> <span class="attr">id</span>=<span class="val">"select"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;option&gt;</span>Option 1<span class="tag">&lt;/option&gt;</span>
+    <span class="tag">&lt;option&gt;</span>Option 2<span class="tag">&lt;/option&gt;</span>
+<span class="tag">&lt;/select&gt;</span></code></pre>
+        </div>
+
+        <!-- Floating Labels -->
+        <div class="section">
+            <h2 class="section-title">Floating Labels</h2>
+            <p class="section-desc">Use <code>.input-floating</code> for labels that float on focus.</p>
+
+            <div class="demo-box">
+                <div class="demo-grid">
+                    <div class="input-floating">
+                        <input type="text" id="username" placeholder=" ">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-floating">
+                        <input type="password" id="password" placeholder=" ">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"input-floating"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">id</span>=<span class="val">"name"</span> <span class="attr">placeholder</span>=<span class="val">" "</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"name"</span><span class="tag">&gt;</span>Name<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </div>
+
+        <!-- Input with Icon -->
+        <div class="section">
+            <h2 class="section-title">Input with Icon</h2>
+            <p class="section-desc">Use <code>.input-with-icon</code> for inputs with icon prefix.</p>
+
+            <div class="demo-box">
+                <div class="demo-grid">
                     <div class="input-with-icon">
-                        <input type="email" placeholder="Email address" required>
+                        <input type="text" placeholder="Search...">
+                        <span class="input-icon">🔍</span>
+                    </div>
+                    <div class="input-with-icon">
+                        <input type="email" placeholder="Email address">
                         <span class="input-icon">📧</span>
                     </div>
+                </div>
+            </div>
 
-                    <label for="dept">Department</label>
-                    <select id="dept" required>
-                        <option value="">Select department...</option>
-                        <option>Engineering</option>
-                        <option>Design</option>
-                        <option>Marketing</option>
-                    </select>
+            <pre><code><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"input-with-icon"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">placeholder</span>=<span class="val">"Search..."</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="val">"input-icon"</span><span class="tag">&gt;</span>🔍<span class="tag">&lt;/span&gt;</span>
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        </div>
 
-                    <label>
-                        <input type="checkbox" required>
-                        I agree to the terms and conditions
-                    </label>
+    </div>
 
-                    <button type="submit" class="btn-gradient" style="width: 100%;">Submit</button>
-                </form>
-            </article>
-        </section>
-    </main>
-
-    <footer class="container" style="text-align: center; padding: 3rem 0; color: var(--pico-muted-color);">
-        <p>Made with ❤️ using <a href="https://picocss.com" target="_blank">PicoCSS</a></p>
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; color: var(--pico-muted-color);">
+        Made with ❤️ using <a href="https://picocss.com">PicoCSS</a>
     </footer>
+
 </body>
 
 </html>

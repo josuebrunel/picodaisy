@@ -310,8 +310,8 @@
             <div class="daisy-hero-content">
                 <h1>Pico-Daisy UI</h1>
                 <p class="lead">
-                    A beautiful DaisyUI-inspired theme for PicoCSS v2.
-                    All the simplicity of PicoCSS with the aesthetic beauty of DaisyUI.
+                    <strong>Classless-first</strong> CSS theme for PicoCSS v2.
+                    Write semantic HTML, get DaisyUI aesthetics. Zero classes needed for most elements.
                 </p>
                 <div class="badge-container" style="justify-content: center; gap: 0.5rem; display: flex;">
                     <span class="badge badge-primary">Pure CSS</span>
@@ -409,6 +409,78 @@
                 </div>
 
                 <p><small>Note: Each file includes PicoCSS v2 automatically via <code>@import</code>.</small></p>
+            </div>
+        </section>
+
+        <!-- Hero Variants Demo -->
+        <section class="demo-section">
+            <div class="demo-header">
+                <h2 class="demo-title">Classless-First Philosophy</h2>
+                <p class="demo-subtitle">Write semantic HTML, get beautiful components. Zero classes for most elements.
+                </p>
+            </div>
+
+            <div class="component-grid">
+                <!-- Cards with Article -->
+                <div>
+                    <h3>Cards = <code>&lt;article&gt;</code></h3>
+                    <article>
+                        <header>Automatic Card</header>
+                        <p>This is just an <code>&lt;article&gt;</code> element. No classes needed!</p>
+                        <footer><button class="sm">Learn More</button></footer>
+                    </article>
+
+                    <pre><code><span class="tag">&lt;article&gt;</span>
+    <span class="tag">&lt;header&gt;</span>Title<span class="tag">&lt;/header&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Content<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/article&gt;</span></code></pre>
+                </div>
+
+                <!-- Accordion with Details -->
+                <div>
+                    <h3>Accordion = <code>&lt;details&gt;</code></h3>
+                    <details open>
+                        <summary>What's classless-first?</summary>
+                        <p>It means semantic HTML elements look great without any CSS classes.</p>
+                    </details>
+                    <details>
+                        <summary>Do I need JavaScript?</summary>
+                        <p>No! Pure HTML and CSS. The browser handles interactions.</p>
+                    </details>
+
+                    <pre><code><span class="tag">&lt;details&gt;</span>
+    <span class="tag">&lt;summary&gt;</span>Question?<span class="tag">&lt;/summary&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Answer...<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/details&gt;</span></code></pre>
+                </div>
+            </div>
+
+            <div class="component-grid" style="margin-top: 2rem;">
+                <!-- Role-based Alerts -->
+                <div>
+                    <h3>Alerts = <code>role="alert"</code></h3>
+                    <div role="alert">Default info alert</div>
+                    <div role="alert" data-type="success">Success message!</div>
+                    <div role="alert" data-type="error">Something went wrong</div>
+
+                    <pre><code><span class="tag">&lt;div</span> <span class="attr">role</span>=<span class="val">"alert"</span><span class="tag">&gt;</span>Info<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">role</span>=<span class="val">"alert"</span> <span class="attr">data-type</span>=<span class="val">"success"</span><span class="tag">&gt;</span>OK<span class="tag">&lt;/div&gt;</span></code></pre>
+                </div>
+
+                <!-- Simple Modifiers -->
+                <div>
+                    <h3>Simple Modifiers</h3>
+                    <p>When you need customization, use single-word classes:</p>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                        <button class="gradient">gradient</button>
+                        <button class="outline">outline</button>
+                        <button class="ghost">ghost</button>
+                        <button class="glow bg-primary">glow</button>
+                    </div>
+                    <article class="glass" style="background: var(--gradient-primary); padding: 1rem;">
+                        <p style="margin: 0; color: white;">Article with <code>.glass</code> modifier</p>
+                    </article>
+                </div>
             </div>
         </section>
 

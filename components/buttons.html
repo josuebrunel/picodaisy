@@ -7,36 +7,71 @@
     <title>Buttons - Pico-Daisy Components</title>
     <link rel="stylesheet" href="../pico-daisy.css">
     <style>
-        .component-section {
-            margin-bottom: 4rem;
+        body {
+            background: var(--gradient-mesh), var(--daisy-gray-50);
+            min-height: 100vh;
         }
 
-        .demo-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-items: center;
-            margin: 1.5rem 0;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        .code-block {
-            background: var(--daisy-gray-100);
-            border-radius: var(--daisy-radius-md);
-            padding: 1rem 1.25rem;
-            font-family: var(--daisy-font-mono);
-            font-size: 0.875rem;
-            overflow-x: auto;
-            margin: 1rem 0 2rem;
-        }
-
-        [data-theme="dark"] .code-block {
-            background: var(--daisy-gray-800);
+        .section {
+            margin-bottom: 3rem;
         }
 
         .section-title {
-            border-bottom: 2px solid var(--pico-muted-border-color);
-            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-desc {
+            color: var(--pico-muted-color);
             margin-bottom: 1.5rem;
+        }
+
+        .demo-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--daisy-radius-lg);
+            margin-bottom: 1rem;
+        }
+
+        .demo-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin: 0 0 1.5rem;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .tag {
+            color: #f472b6;
+        }
+
+        .attr {
+            color: #a5b4fc;
+        }
+
+        .val {
+            color: #86efac;
         }
     </style>
 </head>
@@ -44,158 +79,162 @@
 <body>
     <!-- Navigation -->
     <nav class="daisy-nav">
+        <a href="../index.html"><strong>🌼 Pico-Daisy</strong></a>
         <ul>
-            <li><a href="../index.html"><strong>☁️ Pico-Daisy</strong></a></li>
-        </ul>
-        <ul>
-            <li><a href="buttons.html" class="active">Buttons</a></li>
+            <li><a href="buttons.html"><strong>Buttons</strong></a></li>
             <li><a href="cards.html">Cards</a></li>
             <li><a href="forms.html">Forms</a></li>
             <li><a href="alerts.html">Alerts</a></li>
             <li><a href="navigation.html">Navigation</a></li>
         </ul>
-        <ul>
-            <li><a href="https://github.com/josuebrunel/picodaisy" target="_blank">GitHub</a></li>
-        </ul>
+        <a href="https://github.com/josuebrunel/picodaisy" target="_blank">GitHub</a>
     </nav>
 
-    <main class="container">
-        <hgroup style="margin: 3rem 0;">
-            <h1>Buttons</h1>
-            <p>Premium button styles with gradients, animations, and multiple variants.</p>
-        </hgroup>
+    <div class="container">
+        <h1>Buttons</h1>
+        <p class="section-desc">Beautiful buttons with minimal classes. Most buttons are styled automatically!</p>
 
-        <!-- Primary Buttons -->
-        <section class="component-section">
-            <h2 class="section-title">Primary Buttons</h2>
-            <p>Default button styling with hover animations and shadow effects.</p>
+        <!-- Default Buttons -->
+        <div class="section">
+            <h2 class="section-title">Default Buttons (Classless)</h2>
+            <p class="section-desc">Regular <code>&lt;button&gt;</code> elements are automatically styled.</p>
 
-            <div class="demo-grid">
-                <button>Primary</button>
-                <button class="secondary">Secondary</button>
-                <button class="contrast">Contrast</button>
-                <button disabled>Disabled</button>
-            </div>
-
-            <pre class="code-block">&lt;button&gt;Primary&lt;/button&gt;
-&lt;button class="secondary"&gt;Secondary&lt;/button&gt;
-&lt;button class="contrast"&gt;Contrast&lt;/button&gt;
-&lt;button disabled&gt;Disabled&lt;/button&gt;</pre>
-        </section>
-
-        <!-- Gradient Buttons -->
-        <section class="component-section">
-            <h2 class="section-title">Gradient Buttons</h2>
-            <p>Eye-catching gradient buttons with glow effect on hover.</p>
-
-            <div class="demo-grid">
-                <button class="btn-gradient">Gradient Button</button>
-                <button class="btn-gradient btn-lg">Large Gradient</button>
-                <button class="btn-gradient btn-sm">Small</button>
-            </div>
-
-            <pre class="code-block">&lt;button class="btn-gradient"&gt;Gradient Button&lt;/button&gt;
-&lt;button class="btn-gradient btn-lg"&gt;Large Gradient&lt;/button&gt;
-&lt;button class="btn-gradient btn-sm"&gt;Small&lt;/button&gt;</pre>
-        </section>
-
-        <!-- Outline Buttons -->
-        <section class="component-section">
-            <h2 class="section-title">Outline Buttons</h2>
-            <p>Transparent background with colored border. Fills on hover.</p>
-
-            <div class="demo-grid">
-                <button class="btn-outline">Outline Primary</button>
-                <button class="outline">Pico Outline</button>
-            </div>
-
-            <pre class="code-block">&lt;button class="btn-outline"&gt;Outline Primary&lt;/button&gt;
-&lt;button class="outline"&gt;Pico Outline&lt;/button&gt;</pre>
-        </section>
-
-        <!-- Ghost Buttons -->
-        <section class="component-section">
-            <h2 class="section-title">Ghost Buttons</h2>
-            <p>Minimal styling, perfect for secondary actions.</p>
-
-            <div class="demo-grid">
-                <button class="btn-ghost">Ghost Button</button>
-                <button class="btn-ghost btn-icon">🔔 With Icon</button>
-            </div>
-
-            <pre class="code-block">&lt;button class="btn-ghost"&gt;Ghost Button&lt;/button&gt;
-&lt;button class="btn-ghost btn-icon"&gt;🔔 With Icon&lt;/button&gt;</pre>
-        </section>
-
-        <!-- Glass Buttons -->
-        <section class="component-section">
-            <h2 class="section-title">Glass Buttons</h2>
-            <p>Frosted glass effect with backdrop blur.</p>
-
-            <div class="demo-grid"
-                style="background: var(--gradient-mesh); padding: 2rem; border-radius: var(--daisy-radius-lg);">
-                <button class="btn-glass">Glass Button</button>
-                <button class="btn-glass btn-icon">✨ Glass Icon</button>
-            </div>
-
-            <pre class="code-block">&lt;button class="btn-glass"&gt;Glass Button&lt;/button&gt;
-&lt;button class="btn-glass btn-icon"&gt;✨ Glass Icon&lt;/button&gt;</pre>
-        </section>
-
-        <!-- Button Sizes -->
-        <section class="component-section">
-            <h2 class="section-title">Button Sizes</h2>
-            <p>Available in small, default, and large sizes.</p>
-
-            <div class="demo-grid">
-                <button class="btn-sm">Small</button>
-                <button>Default</button>
-                <button class="btn-lg">Large</button>
-            </div>
-
-            <pre class="code-block">&lt;button class="btn-sm"&gt;Small&lt;/button&gt;
-&lt;button&gt;Default&lt;/button&gt;
-&lt;button class="btn-lg"&gt;Large&lt;/button&gt;</pre>
-        </section>
-
-        <!-- Loading State -->
-        <section class="component-section">
-            <h2 class="section-title">Loading State</h2>
-            <p>Show a loading spinner while processing.</p>
-
-            <div class="demo-grid">
-                <button class="btn-loading">Loading</button>
-                <button class="btn-gradient btn-loading">Saving</button>
-            </div>
-
-            <pre class="code-block">&lt;button class="btn-loading"&gt;Loading&lt;/button&gt;
-&lt;button class="btn-gradient btn-loading"&gt;Saving&lt;/button&gt;</pre>
-        </section>
-
-        <!-- Button Groups -->
-        <section class="component-section">
-            <h2 class="section-title">Button Groups (Join)</h2>
-            <p>Group buttons together for related actions.</p>
-
-            <div class="demo-grid">
-                <div class="daisy-join">
-                    <button>Left</button>
-                    <button>Center</button>
-                    <button>Right</button>
+            <div class="demo-box">
+                <div class="demo-row">
+                    <button>Default Button</button>
+                    <button disabled>Disabled</button>
                 </div>
             </div>
 
-            <pre class="code-block">&lt;div class="daisy-join"&gt;
-    &lt;button&gt;Left&lt;/button&gt;
-    &lt;button&gt;Center&lt;/button&gt;
-    &lt;button&gt;Right&lt;/button&gt;
-&lt;/div&gt;</pre>
-        </section>
-    </main>
+            <pre><code><span class="tag">&lt;button&gt;</span>Default Button<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">disabled</span><span class="tag">&gt;</span>Disabled<span class="tag">&lt;/button&gt;</span></code></pre>
+        </div>
 
-    <footer class="container" style="text-align: center; padding: 3rem 0; color: var(--pico-muted-color);">
-        <p>Made with ❤️ using <a href="https://picocss.com" target="_blank">PicoCSS</a></p>
+        <!-- Gradient Buttons -->
+        <div class="section">
+            <h2 class="section-title">Gradient Buttons</h2>
+            <p class="section-desc">Add <code>.gradient</code> for a vibrant purple-to-pink gradient.</p>
+
+            <div class="demo-box">
+                <div class="demo-row">
+                    <button class="gradient">Gradient Button</button>
+                    <button class="gradient glow">Gradient + Glow</button>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"gradient"</span><span class="tag">&gt;</span>Gradient Button<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"gradient glow"</span><span class="tag">&gt;</span>Gradient + Glow<span class="tag">&lt;/button&gt;</span></code></pre>
+        </div>
+
+        <!-- Outline Buttons -->
+        <div class="section">
+            <h2 class="section-title">Outline Buttons</h2>
+            <p class="section-desc">Add <code>.outline</code> for a bordered style.</p>
+
+            <div class="demo-box">
+                <div class="demo-row">
+                    <button class="outline">Outline</button>
+                    <button class="outline primary">Primary</button>
+                    <button class="outline secondary">Secondary</button>
+                    <button class="outline accent">Accent</button>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"outline"</span><span class="tag">&gt;</span>Outline<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"outline primary"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/button&gt;</span></code></pre>
+        </div>
+
+        <!-- Ghost Buttons -->
+        <div class="section">
+            <h2 class="section-title">Ghost Buttons</h2>
+            <p class="section-desc">Add <code>.ghost</code> for minimal, transparent buttons.</p>
+
+            <div class="demo-box">
+                <div class="demo-row">
+                    <button class="ghost">Ghost Button</button>
+                    <button class="ghost primary">Ghost Primary</button>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"ghost"</span><span class="tag">&gt;</span>Ghost Button<span class="tag">&lt;/button&gt;</span></code></pre>
+        </div>
+
+        <!-- Size Variations -->
+        <div class="section">
+            <h2 class="section-title">Sizes</h2>
+            <p class="section-desc">Use <code>.sm</code>, <code>.lg</code>, or <code>.xl</code> for different sizes.</p>
+
+            <div class="demo-box">
+                <div class="demo-row">
+                    <button class="sm">Small</button>
+                    <button>Default</button>
+                    <button class="lg">Large</button>
+                    <button class="xl">Extra Large</button>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"sm"</span><span class="tag">&gt;</span>Small<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"lg"</span><span class="tag">&gt;</span>Large<span class="tag">&lt;/button&gt;</span></code></pre>
+        </div>
+
+        <!-- Loading State -->
+        <div class="section">
+            <h2 class="section-title">Loading State</h2>
+            <p class="section-desc">Add <code>.loading</code> to show a spinner.</p>
+
+            <div class="demo-box">
+                <div class="demo-row">
+                    <button class="loading">Saving...</button>
+                    <button class="gradient loading">Processing</button>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"loading"</span><span class="tag">&gt;</span>Saving...<span class="tag">&lt;/button&gt;</span></code></pre>
+        </div>
+
+        <!-- Color Backgrounds -->
+        <div class="section">
+            <h2 class="section-title">Color Backgrounds</h2>
+            <p class="section-desc">Use <code>.bg-*</code> classes for solid color backgrounds.</p>
+
+            <div class="demo-box">
+                <div class="demo-row">
+                    <button class="bg-primary">Primary</button>
+                    <button class="bg-secondary">Secondary</button>
+                    <button class="bg-accent">Accent</button>
+                    <button class="bg-success">Success</button>
+                    <button class="bg-warning">Warning</button>
+                    <button class="bg-error">Error</button>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"bg-primary"</span><span class="tag">&gt;</span>Primary<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"bg-success"</span><span class="tag">&gt;</span>Success<span class="tag">&lt;/button&gt;</span></code></pre>
+        </div>
+
+        <!-- Combining Modifiers -->
+        <div class="section">
+            <h2 class="section-title">Combining Modifiers</h2>
+            <p class="section-desc">Mix and match for unique button styles.</p>
+
+            <div class="demo-box">
+                <div class="demo-row">
+                    <button class="gradient lg glow">Gradient + Large + Glow</button>
+                    <button class="outline primary lg">Outline + Primary + Large</button>
+                    <button class="ghost sm">Ghost + Small</button>
+                </div>
+            </div>
+
+            <pre><code><span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="val">"gradient lg glow"</span><span class="tag">&gt;</span>Custom<span class="tag">&lt;/button&gt;</span></code></pre>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; color: var(--pico-muted-color);">
+        Made with ❤️ using <a href="https://picocss.com">PicoCSS</a>
     </footer>
+
 </body>
 
 </html>
