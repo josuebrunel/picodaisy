@@ -9,37 +9,54 @@
 /* --- Blue Color Scheme Overrides --- */
 :root {
     /* Primary Colors - Blue palette */
-    --modern-primary: #2563eb;
-    --modern-primary-light: #3b82f6;
-    --modern-primary-dark: #1d4ed8;
-    --modern-primary-glow: rgba(37, 99, 235, 0.4);
+    --daisy-primary: #2563eb;
+    --daisy-primary-light: #3b82f6;
+    --daisy-primary-dark: #1d4ed8;
+    --daisy-primary-glow: rgba(37, 99, 235, 0.4);
 
     /* Secondary - Deep Blue */
-    --modern-secondary: #1e40af;
-    --modern-secondary-light: #3730a3;
-    --modern-secondary-dark: #1e3a8a;
+    --daisy-secondary: #1e40af;
+    --daisy-secondary-light: #3730a3;
+    --daisy-secondary-dark: #1e3a8a;
 
     /* Accent - Orange/Amber (complementary) */
-    --modern-accent: #f59e0b;
-    --modern-accent-light: #fbbf24;
-    --modern-accent-dark: #d97706;
+    --daisy-accent: #f59e0b;
+    --daisy-accent-light: #fbbf24;
+    --daisy-accent-dark: #d97706;
 
     /* Gradient Definitions */
-    --gradient-primary: linear-gradient(135deg, var(--modern-primary) 0%, var(--modern-secondary) 100%);
-    --gradient-secondary: linear-gradient(135deg, var(--modern-secondary) 0%, var(--modern-accent) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--modern-accent) 0%, var(--modern-primary) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--daisy-primary) 0%, var(--daisy-secondary) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--daisy-secondary) 0%, var(--daisy-accent) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--daisy-accent) 0%, var(--daisy-primary) 100%);
     --gradient-aurora: linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #3b82f6 100%);
 
     /* PicoCSS Overrides */
-    --pico-primary: var(--modern-primary);
-    --pico-primary-background: var(--modern-primary);
-    --pico-primary-hover: var(--modern-primary-dark);
-    --pico-primary-underline: var(--modern-primary-light);
-    --pico-primary-focus: var(--modern-primary-glow);
+    --pico-primary: var(--daisy-primary);
+    --pico-primary-background: var(--daisy-primary);
+    --pico-primary-hover: var(--daisy-primary-dark);
+    --pico-primary-underline: var(--daisy-primary-light);
+    --pico-primary-focus: var(--daisy-primary-glow);
 
-    --pico-secondary: var(--modern-secondary);
-    --pico-secondary-hover: var(--modern-secondary-dark);
+    --pico-secondary: var(--daisy-secondary);
+    --pico-secondary-hover: var(--daisy-secondary-dark);
 
-    --pico-accent: var(--modern-accent);
-    --pico-accent-hover: var(--modern-accent-dark);
+    --pico-accent: var(--daisy-accent);
+    --pico-accent-hover: var(--daisy-accent-dark);
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+    --daisy-primary: #3b82f6;
+    --daisy-primary-light: #60a5fa;
+    --daisy-primary-dark: #2563eb;
+    --daisy-primary-glow: rgba(59, 130, 246, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --daisy-primary: #3b82f6;
+        --daisy-primary-light: #60a5fa;
+        --daisy-primary-dark: #2563eb;
+        --daisy-primary-glow: rgba(59, 130, 246, 0.4);
+    }
 }

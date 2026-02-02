@@ -9,37 +9,54 @@
 /* --- Light Grey Color Scheme Overrides --- */
 :root {
     /* Primary Colors - Neutral/Grey palette */
-    --modern-primary: #6b7280;
-    --modern-primary-light: #9ca3af;
-    --modern-primary-dark: #4b5563;
-    --modern-primary-glow: rgba(107, 114, 128, 0.4);
+    --daisy-primary: #6b7280;
+    --daisy-primary-light: #9ca3af;
+    --daisy-primary-dark: #4b5563;
+    --daisy-primary-glow: rgba(107, 114, 128, 0.4);
 
     /* Secondary - Warm Grey */
-    --modern-secondary: #374151;
-    --modern-secondary-light: #4b5563;
-    --modern-secondary-dark: #1f2937;
+    --daisy-secondary: #374151;
+    --daisy-secondary-light: #4b5563;
+    --daisy-secondary-dark: #1f2937;
 
     /* Accent - Indigo (complementary) */
-    --modern-accent: #6366f1;
-    --modern-accent-light: #818cf8;
-    --modern-accent-dark: #4f46e5;
+    --daisy-accent: #6366f1;
+    --daisy-accent-light: #818cf8;
+    --daisy-accent-dark: #4f46e5;
 
     /* Gradient Definitions */
-    --gradient-primary: linear-gradient(135deg, var(--modern-primary) 0%, var(--modern-secondary) 100%);
-    --gradient-secondary: linear-gradient(135deg, var(--modern-secondary) 0%, var(--modern-accent) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--modern-accent) 0%, var(--modern-primary) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--daisy-primary) 0%, var(--daisy-secondary) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--daisy-secondary) 0%, var(--daisy-accent) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--daisy-accent) 0%, var(--daisy-primary) 100%);
     --gradient-aurora: linear-gradient(135deg, #6b7280 0%, #374151 50%, #9ca3af 100%);
 
     /* PicoCSS Overrides */
-    --pico-primary: var(--modern-primary);
-    --pico-primary-background: var(--modern-primary);
-    --pico-primary-hover: var(--modern-primary-dark);
-    --pico-primary-underline: var(--modern-primary-light);
-    --pico-primary-focus: var(--modern-primary-glow);
+    --pico-primary: var(--daisy-primary);
+    --pico-primary-background: var(--daisy-primary);
+    --pico-primary-hover: var(--daisy-primary-dark);
+    --pico-primary-underline: var(--daisy-primary-light);
+    --pico-primary-focus: var(--daisy-primary-glow);
 
-    --pico-secondary: var(--modern-secondary);
-    --pico-secondary-hover: var(--modern-secondary-dark);
+    --pico-secondary: var(--daisy-secondary);
+    --pico-secondary-hover: var(--daisy-secondary-dark);
 
-    --pico-accent: var(--modern-accent);
-    --pico-accent-hover: var(--modern-accent-dark);
+    --pico-accent: var(--daisy-accent);
+    --pico-accent-hover: var(--daisy-accent-dark);
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+    --daisy-primary: #9ca3af;
+    --daisy-primary-light: #d1d5db;
+    --daisy-primary-dark: #6b7280;
+    --daisy-primary-glow: rgba(156, 163, 175, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --daisy-primary: #9ca3af;
+        --daisy-primary-light: #d1d5db;
+        --daisy-primary-dark: #6b7280;
+        --daisy-primary-glow: rgba(156, 163, 175, 0.4);
+    }
 }

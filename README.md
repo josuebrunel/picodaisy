@@ -40,19 +40,26 @@ It's [live](https://josuebrunel.github.io/picodaisy/)
 
 ## Themes
 
-Pico-Daisy UI comes with 7 color variants:
+Pico-Daisy UI comes with 7 color variants, all with **full dark mode support**:
 
-- **Default (Violet)**: The classic DaisyUI look.
-- **Blue**: A professional blue theme.
-- **Red**: A bold and energetic theme.
-- **Green**: A fresh nature-inspired theme.
-- **Teal**: A clean, calming theme.
-- **Light Grey**: A minimal, monochrome theme.
-- **Dark Grey**: A sleek, dark monochrome theme.
+| Theme                | Primary Color | Description                                         |
+| -------------------- | ------------- | --------------------------------------------------- |
+| **Default (Violet)** | `#6366f1`     | The classic DaisyUI look with indigo/violet accents |
+| **Blue**             | `#2563eb`     | A professional blue theme with amber accents        |
+| **Red**              | `#e11d48`     | A bold and energetic rose/red theme                 |
+| **Green**            | `#22c55e`     | A fresh nature-inspired theme with purple accents   |
+| **Teal**             | `#14b8a6`     | A clean, calming cyan theme with pink accents       |
+| **Light Grey**       | `#6b7280`     | A minimal, neutral monochrome theme                 |
+| **Dark Grey**        | `#475569`     | A sleek, slate monochrome theme                     |
 
-To use a variant, simply include the corresponding CSS file:
+### Using Theme Variants
+
+Each variant file imports the base `pico-daisy.css` and overrides the color scheme. Simply use a variant file **instead of** the main CSS:
 
 ```html
+<!-- Default Violet Theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.css">
+
 <!-- Blue Theme -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.blue.css">
 
@@ -71,6 +78,8 @@ To use a variant, simply include the corresponding CSS file:
 <!-- Dark Grey Theme -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/josuebrunel/picodaisy@latest/pico-daisy.dark-grey.css">
 ```
+
+> **Note**: Each theme variant automatically adapts to dark mode using `[data-theme="dark"]` or `prefers-color-scheme: dark`. The primary colors are adjusted for optimal contrast in both light and dark modes.
 
 ## Custom Properties
 The theme uses CSS custom properties for easy customization:
