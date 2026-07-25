@@ -1,62 +1,27 @@
 /* Pico-Daisy Green Variant
-   Imports the base modern theme and overrides with a green color scheme.
-   
+   Imports the base theme and overrides the primary color scale with green.
    Usage: <link rel="stylesheet" href="pico-daisy.green.css">
 */
 
 @import url('pico-daisy.css');
 
-/* --- Green Color Scheme Overrides --- */
 :root {
-    /* Primary Colors - Green palette */
-    --daisy-primary: #22c55e;
-    --daisy-primary-light: #4ade80;
-    --daisy-primary-dark: #16a34a;
-    --daisy-primary-glow: rgba(34, 197, 94, 0.4);
-
-    /* Secondary - Forest Green */
-    --daisy-secondary: #15803d;
-    --daisy-secondary-light: #166534;
-    --daisy-secondary-dark: #14532d;
-
-    /* Accent - Purple (complementary) */
-    --daisy-accent: #8b5cf6;
-    --daisy-accent-light: #a78bfa;
-    --daisy-accent-dark: #7c3aed;
-
-    /* Gradient Definitions */
-    --gradient-primary: linear-gradient(135deg, var(--daisy-primary) 0%, var(--daisy-secondary) 100%);
-    --gradient-secondary: linear-gradient(135deg, var(--daisy-secondary) 0%, var(--daisy-accent) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--daisy-accent) 0%, var(--daisy-primary) 100%);
-    --gradient-aurora: linear-gradient(135deg, #22c55e 0%, #15803d 50%, #4ade80 100%);
-
-    /* PicoCSS Overrides */
-    --pico-primary: var(--daisy-primary);
-    --pico-primary-background: var(--daisy-primary);
-    --pico-primary-hover: var(--daisy-primary-dark);
-    --pico-primary-underline: var(--daisy-primary-light);
-    --pico-primary-focus: var(--daisy-primary-glow);
-
-    --pico-secondary: var(--daisy-secondary);
-    --pico-secondary-hover: var(--daisy-secondary-dark);
-
-    --pico-accent: var(--daisy-accent);
-    --pico-accent-hover: var(--daisy-accent-dark);
+  --primary-400: #4ade80;
+  --primary-500: #22c55e;
+  --primary-600: #16a34a;
+  --primary-700: #15803d;
 }
 
-/* Dark mode overrides */
 [data-theme="dark"] {
-    --daisy-primary: #4ade80;
-    --daisy-primary-light: #86efac;
-    --daisy-primary-dark: #22c55e;
-    --daisy-primary-glow: rgba(74, 222, 128, 0.4);
+  --primary-400: #86efac;
+  --primary-500: #4ade80;
+  --primary-600: #22c55e;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --daisy-primary: #4ade80;
-        --daisy-primary-light: #86efac;
-        --daisy-primary-dark: #22c55e;
-        --daisy-primary-glow: rgba(74, 222, 128, 0.4);
-    }
+  :root:not([data-theme="light"]) {
+    --primary-400: #86efac;
+    --primary-500: #4ade80;
+    --primary-600: #22c55e;
+  }
 }

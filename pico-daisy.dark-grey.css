@@ -1,62 +1,27 @@
 /* Pico-Daisy Dark Grey Variant
-   Imports the base modern theme and overrides with a dark grey color scheme.
-   
+   Imports the base theme and overrides the primary color scale with slate.
    Usage: <link rel="stylesheet" href="pico-daisy.dark-grey.css">
 */
 
 @import url('pico-daisy.css');
 
-/* --- Dark Grey Color Scheme Overrides --- */
 :root {
-    /* Primary Colors - Slate/Grey palette */
-    --daisy-primary: #475569;
-    --daisy-primary-light: #64748b;
-    --daisy-primary-dark: #334155;
-    --daisy-primary-glow: rgba(71, 85, 105, 0.4);
-
-    /* Secondary - Slate */
-    --daisy-secondary: #1e293b;
-    --daisy-secondary-light: #334155;
-    --daisy-secondary-dark: #0f172a;
-
-    /* Accent - Amber (complementary) */
-    --daisy-accent: #f59e0b;
-    --daisy-accent-light: #fbbf24;
-    --daisy-accent-dark: #d97706;
-
-    /* Gradient Definitions */
-    --gradient-primary: linear-gradient(135deg, var(--daisy-primary) 0%, var(--daisy-secondary) 100%);
-    --gradient-secondary: linear-gradient(135deg, var(--daisy-secondary) 0%, var(--daisy-accent) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--daisy-accent) 0%, var(--daisy-primary) 100%);
-    --gradient-aurora: linear-gradient(135deg, #475569 0%, #1e293b 50%, #64748b 100%);
-
-    /* PicoCSS Overrides */
-    --pico-primary: var(--daisy-primary);
-    --pico-primary-background: var(--daisy-primary);
-    --pico-primary-hover: var(--daisy-primary-dark);
-    --pico-primary-underline: var(--daisy-primary-light);
-    --pico-primary-focus: var(--daisy-primary-glow);
-
-    --pico-secondary: var(--daisy-secondary);
-    --pico-secondary-hover: var(--daisy-secondary-dark);
-
-    --pico-accent: var(--daisy-accent);
-    --pico-accent-hover: var(--daisy-accent-dark);
+  --primary-400: #64748b;
+  --primary-500: #475569;
+  --primary-600: #334155;
+  --primary-700: #1e293b;
 }
 
-/* Dark mode overrides */
 [data-theme="dark"] {
-    --daisy-primary: #64748b;
-    --daisy-primary-light: #94a3b8;
-    --daisy-primary-dark: #475569;
-    --daisy-primary-glow: rgba(100, 116, 139, 0.4);
+  --primary-400: #94a3b8;
+  --primary-500: #64748b;
+  --primary-600: #475569;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --daisy-primary: #64748b;
-        --daisy-primary-light: #94a3b8;
-        --daisy-primary-dark: #475569;
-        --daisy-primary-glow: rgba(100, 116, 139, 0.4);
-    }
+  :root:not([data-theme="light"]) {
+    --primary-400: #94a3b8;
+    --primary-500: #64748b;
+    --primary-600: #475569;
+  }
 }
